@@ -52,7 +52,6 @@ document.querySelectorAll('.faq-item button').forEach(button => {
 });
 
 const testimonialSlides = [...document.querySelectorAll('.testimonial-slide')];
-const testimonialDots = [...document.querySelectorAll('.testimonial-dots button')];
 let activeTestimonial = 0;
 
 function showTestimonial(index) {
@@ -62,16 +61,10 @@ function showTestimonial(index) {
     slide.classList.toggle('active', isActive);
     slide.setAttribute('aria-hidden', String(!isActive));
   });
-  testimonialDots.forEach((dot, dotIndex) => {
-    const isActive = dotIndex === activeTestimonial;
-    dot.classList.toggle('active', isActive);
-    dot.setAttribute('aria-selected', String(isActive));
-  });
 }
 
 document.querySelector('.testimonial-prev').addEventListener('click', () => showTestimonial(activeTestimonial - 1));
 document.querySelector('.testimonial-next').addEventListener('click', () => showTestimonial(activeTestimonial + 1));
-testimonialDots.forEach((dot, index) => dot.addEventListener('click', () => showTestimonial(index)));
 
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
