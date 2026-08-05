@@ -57,4 +57,5 @@
 .system-card{display:block;cursor:pointer}
 .system-card:focus-visible{outline:4px solid var(--green);outline-offset:4px}
 .faq{background-color:#080808;background-image:linear-gradient(rgba(5,5,5,.82),rgba(5,5,5,.82)),url("assets/faq-technician-homeowner.png");background-size:cover;background-position:center;background-repeat:no-repeat}
+.contact{background-color:#373d3a;background-image:url("assets/contact-hvac-units.png");background-size:cover;background-position:center;background-repeat:no-repeat}
 @media(max-width:700px){.hero-answer{font-size:13px;line-height:1.45;margin-top:16px}.hero-actions{margin-top:28px}.review-links{flex-direction:column;align-items:center}.credential-list{text-align:left}}
