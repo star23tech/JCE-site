@@ -45,3 +45,12 @@
 .fortified .quote-controls button:hover{color:#050505;background:var(--green);border-color:var(--green)}
 .fortified .testimonial-footer{justify-content:center}
 .fortified .quote-controls{margin-left:0}
+.hero-answer{max-width:820px;margin:22px auto 0;font-size:clamp(14px,1.25vw,18px);line-height:1.6;font-weight:500;text-transform:none;text-shadow:0 2px 18px rgba(0,0,0,.85)}
+.hero-actions{margin-top:38px}
+.review-summary{margin:12px auto 0!important;font-size:13px!important;text-transform:uppercase;letter-spacing:.12em;font-weight:900}
+.review-links{display:flex;justify-content:center;gap:12px;margin-top:24px}
+.review-links .outline-button{font-size:11px;padding:13px 18px}
+.credential-list{display:grid;gap:11px;margin:25px 0;padding:0;list-style:none;color:#555}
+.credential-list li{position:relative;padding-left:23px;line-height:1.5}
+.credential-list li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
+@media(max-width:700px){.hero-answer{font-size:13px;line-height:1.45;margin-top:16px}.hero-actions{margin-top:28px}.review-links{flex-direction:column;align-items:center}.credential-list{text-align:left}}

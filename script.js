@@ -12,28 +12,6 @@ nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
   menuButton.setAttribute('aria-expanded', 'false');
 }));
 
-const tabContent = {
-  inspection: { label: 'Every step of the way', title: 'Customer focused', copy: 'From assessing your needs to delivering the service you want, we pride ourselves on our commitment to customer satisfaction every step of the way.' },
-  install: { label: 'Every project is unique', title: 'Innovative specialized solutions', copy: 'We recognize that every project and every situation is unique, so we work with you to achieve your goals in the best way possible.' },
-  management: { label: '20+ years across the field', title: 'Expert electricians', copy: 'With over 20 years of experience across the electrical field, we provide expert solutions for your electrical needs.' },
-  aftercare: { label: 'From first meeting to completion', title: 'Professionalism', copy: 'Our clients can expect a high level of professionalism from the very first meeting through completion of the project.' }
-};
-
-document.querySelectorAll('.tabs button').forEach(button => {
-  button.addEventListener('click', () => {
-    document.querySelectorAll('.tabs button').forEach(tab => {
-      tab.classList.remove('active');
-      tab.setAttribute('aria-selected', 'false');
-    });
-    button.classList.add('active');
-    button.setAttribute('aria-selected', 'true');
-    const content = tabContent[button.dataset.tab];
-    document.getElementById('tab-label').textContent = content.label;
-    document.getElementById('tab-title').textContent = content.title;
-    document.getElementById('tab-copy').textContent = content.copy;
-  });
-});
-
 document.querySelectorAll('.faq-item button').forEach(button => {
   button.addEventListener('click', () => {
     const item = button.closest('.faq-item');
