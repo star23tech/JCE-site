@@ -35,3 +35,8 @@
 .hero-actions{display:flex;justify-content:center;gap:14px;margin-top:70px}
 .hero .hero-actions .outline-button{margin-top:0;min-width:190px}
 @media(max-width:700px){.hero-actions{flex-direction:column;align-items:center;gap:10px;margin-top:48px}.hero .hero-actions .outline-button{width:min(100%,260px);margin-top:0}}
+
+/* Testimonial carousel within the full-width trust section */
+.fortified .testimonial-carousel{margin:42px auto 0;color:var(--black);text-align:left}
+.fortified .testimonial-author{max-width:none;margin:0;color:var(--black);font-size:13px}
+.fortified .testimonial-author span{color:#777}
