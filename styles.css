@@ -30,3 +30,8 @@
 /* Keep the longer local-search headline clear of the site header */
 .hero h1{font-size:clamp(46px,6.3vw,92px);line-height:.96;letter-spacing:-.045em}
 @media(max-width:700px){.hero h1{font-size:clamp(40px,11vw,60px);line-height:1}}
+
+/* Hero service paths */
+.hero-actions{display:flex;justify-content:center;gap:14px;margin-top:70px}
+.hero .hero-actions .outline-button{margin-top:0;min-width:190px}
+@media(max-width:700px){.hero-actions{flex-direction:column;align-items:center;gap:10px;margin-top:48px}.hero .hero-actions .outline-button{width:min(100%,260px);margin-top:0}}
