@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="shared-header.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,13 +54,13 @@
       "name": "Electrical and HVAC Services",
       "itemListElement": [
         {"@type": "OfferCatalog", "name": "Electrical Services", "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential Electrical Service and Repairs", "url": "https://johncalhounelectric.com/electrician-roanoke-va/"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Electrical Contracting", "url": "https://johncalhounelectric.com/commercial-electrician-roanoke-va/"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Electrical Repair", "url": "https://johncalhounelectric.com/electrical-repair-roanoke-va/"}}
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential Electrical Service and Repairs"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Electrical Contracting"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Electrical Repair"}}
         ]},
         {"@type": "OfferCatalog", "name": "HVAC Services", "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential and Light Commercial HVAC Service", "url": "https://johncalhounelectric.com/hvac-services-roanoke-va/"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HVAC Repair", "url": "https://johncalhounelectric.com/hvac-repair-roanoke-va/"}}
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential and Light Commercial HVAC Service"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HVAC Repair"}}
         ]}
       ]
     }
@@ -67,14 +68,22 @@
   </script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="John Calhoun Electric home"><img class="brand-logo" src="assets/john-calhoun-electric-logo.png" alt="John Calhoun Electric"></a>
+  <div class="top-service-bar" aria-label="Five-star reviews and 24/7 service">
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=John%20Calhoun%20Electric%20Roanoke%20VA" aria-label="Read our reviews on Google Maps"><span class="top-stars" aria-hidden="true">★★★★★</span> Read our Reviews</a>
+    <strong>24/7 Service</strong>
+  </div>
+  <header class="site-header standard-header">
+    <a class="brand header-wordmark" href="#top" aria-label="John Calhoun Electric and HVAC home">
+      <strong>John Calhoun</strong>
+      <span>– Electric <b>|</b> HVAC –</span>
+    </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
     <nav id="main-nav" class="main-nav" aria-label="Main navigation">
-      <a href="about/index.html">About</a>
-      <a href="#systems">Services</a>
-      <a href="commercial-electrician-roanoke-va/index.html">Our work</a>
-      <a href="#faq">Resources</a>
+      <div class="nav-dropdown"><a href="hvac-services/index.html">Air Conditioning</a><ul class="nav-submenu"><li><a href="ac-repair/index.html">AC Repair</a></li><li><a href="ac-installation-replacement/index.html">AC Installation &amp; Replacement</a></li><li><a href="ac-maintenance-tune-ups/index.html">AC Maintenance &amp; Tune-Ups</a></li><li><a href="ductless-mini-splits/index.html">Ductless Mini Splits</a></li><li><a href="commercial-hvac-services/index.html">Commercial HVAC Services</a></li></ul></div>
+      <a href="hvac-services/index.html">Heating</a>
+      <a href="electrical-services/index.html">Electrical</a>
+      <a href="about/index.html">About Us</a>
+      <a href="#contact">Contact</a>
     </nav>
     <a class="header-call" href="tel:+15403001982">Call us (540) 300-1982</a>
   </header>
@@ -86,48 +95,44 @@
       </video>
       <div class="hero-overlay"></div>
       <div class="hero-copy">
-        <p class="hero-kicker animate-in">Local expertise. Proven service.</p>
+   
         <h1 class="animate-in delay-1">Electrical &amp; HVAC Services in Roanoke, VA</h1>
         <p class="hero-sub animate-in delay-2"><span>Class “A” contractor</span> <strong>20+ years of experience</strong></p>
         <p class="hero-answer animate-in delay-2">John Calhoun Electric provides residential and commercial electrical and HVAC services throughout Roanoke and surrounding Virginia communities. Our local Class “A” contractor brings more than 20 years of field experience to repairs, installations, remodels, and new construction.</p>
-        <div class="hero-actions animate-in delay-3">
-          <a class="outline-button" href="electrician-roanoke-va/index.html">Electrical Services</a>
-          <a class="outline-button" href="hvac-services-roanoke-va/index.html">HVAC Services</a>
+        <div class="hero-actions animate-in delay-3"><a class="outline-button" href="hvac-services/index.html">HVAC Services</a><a class="outline-button" href="electrical-services/index.html">Electrical Services</a></div>
+      </div>
+    </section>
+    <div class="reviews-services-divider" aria-hidden="true"><span></span></div>
+    <section id="fortified" class="fortified review-showcase">
+      <div class="wide review-showcase-grid reveal">
+        <div class="review-image-placeholder" role="img" aria-label="Customer and John Calhoun service professional image placeholder"><span>Customer service image placeholder</span></div>
+        <div class="review-content">
+          <p class="overline">See what your neighbors are saying</p>
+          <h2>Our <span>Reviews.</span></h2>
+          <div class="review-rating"><span class="quote-mark" aria-hidden="true">“</span><span class="giant-stars" aria-label="Five stars">★★★★★</span></div>
+          <div class="testimonial-carousel" aria-roledescription="carousel" aria-label="Customer testimonials">
+            <div class="testimonial-track" aria-live="polite">
+              <article class="testimonial-slide active" aria-hidden="false"><blockquote>Mr. Calhoun and his highly-skilled team of technicians were nothing short of a savior for my wife and I. These guys came out the same day, were prompt, friendly, and professional, and solved our problem in fast order.</blockquote><p class="testimonial-author"><strong>Timothy Mack</strong><span>Google review</span></p></article>
+              <article class="testimonial-slide" aria-hidden="true"><blockquote>John and his team provided excellent service to our HVAC system and replaced the knob and tube wiring in our 100 year old home. His team was knowledgeable, communicative, and we will definitely use them again.</blockquote><p class="testimonial-author"><strong>Sarah Reid</strong><span>Google review</span></p></article>
+              <article class="testimonial-slide" aria-hidden="true"><blockquote>We had a major electrical issue at our office. John came to our rescue, was personable, and solved our problem right away. We are most grateful for the excellent service.</blockquote><p class="testimonial-author"><strong>Family ServiceRV</strong><span>Google review</span></p></article>
+              <article class="testimonial-slide" aria-hidden="true"><blockquote>Calhoun Electric did an absolutely fantastic job replacing a 4 ton package HVAC unit at my commercial restaurant. They were timely, communicated well, and completed the project within budget.</blockquote><p class="testimonial-author"><strong>Jason Martin</strong><span>Google review</span></p></article>
+              <article class="testimonial-slide" aria-hidden="true"><blockquote>John’s team does a great job on both big and small projects. We work with them on commercial multifamily construction, and their residential crew also did excellent work at my home.</blockquote><p class="testimonial-author"><strong>Aaron Garland</strong><span>Google review</span></p></article>
+            </div>
+            <div class="testimonial-pagination" aria-label="Choose a review"><button class="active" type="button" aria-label="Review 1" aria-current="true"></button><button type="button" aria-label="Review 2"></button><button type="button" aria-label="Review 3"></button><button type="button" aria-label="Review 4"></button><button type="button" aria-label="Review 5"></button></div>
+          </div>
+          <div class="review-actions"><a class="review-button" href="https://www.google.com/maps/search/?api=1&amp;query=John%20Calhoun%20Electric%20Roanoke%20VA" target="_blank" rel="noopener noreferrer">Read Our Reviews</a><a class="review-button review-button-secondary" href="https://www.google.com/maps/search/?api=1&amp;query=John%20Calhoun%20Electric%20Roanoke%20VA" target="_blank" rel="noopener noreferrer">Leave a Google Review</a></div>
         </div>
       </div>
     </section>
-    <div class="trust-bar" aria-hidden="true"></div>
-    <section id="fortified" class="fortified photo-placeholder diagonal-both">
-      <span class="placeholder-label">ELECTRICAL DETAIL IMAGE PLACEHOLDER</span>
-      <div class="dark-overlay"></div>
-      <div class="narrow content-center reveal">
-        <p class="overline green">Here’s what our customers say</p>
-        <h2>TRUSTED BY<br><span>OUR CUSTOMERS.</span></h2>
-        <div class="giant-stars" aria-label="Five stars">★★★★★</div>
-        <p class="review-summary">Rated 4.9 on Google</p>
-        <div class="testimonial-carousel" aria-roledescription="carousel" aria-label="Customer testimonials">
-          <div class="testimonial-track" aria-live="polite">
-            <article class="testimonial-slide active" aria-hidden="false"><span class="quote-mark">“</span><blockquote>Mr. Calhoun and his highly-skilled team of technicians were nothing short of a savior for my wife and I. We were desperate for a fast turnaround and that’s exactly what we got - and so much more. These guys came out the same day, were prompt, friendly, and professional, AND they solved our problem in fast order. Great work, great business!</blockquote><p class="testimonial-author"><strong>Timothy Mack</strong><span>Google review</span></p></article>
-            <article class="testimonial-slide" aria-hidden="true"><span class="quote-mark">“</span><blockquote>John and his team provided excellent service to our HVAC system and replaced the knob and tube wiring in our 100 year old home with modern electric wiring/outlets/etc. His team was knowledgeable, communicative, and we will definitely use them again.</blockquote><p class="testimonial-author"><strong>Sarah Reid</strong><span>Google review</span></p></article>
-            <article class="testimonial-slide" aria-hidden="true"><span class="quote-mark">“</span><blockquote>We had a major electrical issue this morning at our office. The front office computers and outside doors were not working at all! We called John and he came to our rescue! He was so personable and solved our problem right away. We are most grateful for the excellent service.</blockquote><p class="testimonial-author"><strong>Family ServiceRV</strong><span>Google review</span></p></article>
-            <article class="testimonial-slide" aria-hidden="true"><span class="quote-mark">“</span><blockquote>Calhoun Electric did an absolutely fantastic job replacing a 4 ton package HVAC unit at my commercial restaurant location in Roanoke. They were timely, communicated well and completed the project within budget. I highly recommend them!</blockquote><p class="testimonial-author"><strong>Jason Martin</strong><span>Google review</span></p></article>
-            <article class="testimonial-slide" aria-hidden="true"><span class="quote-mark">“</span><blockquote>We normally work with John Calhoun electric on our commercial multifamily construction projects. I recently had his residential crew come to my house to install an outlet. John’s team does a great job on both big and small projects.</blockquote><p class="testimonial-author"><strong>Aaron Garland</strong><span>Google review</span></p></article>
-          </div>
-          <div class="testimonial-footer">
-            <div class="quote-controls"><button class="testimonial-prev" type="button" aria-label="Previous testimonial">←</button><button class="testimonial-next" type="button" aria-label="Next testimonial">→</button></div>
-          </div>
-        </div>
-        <div class="review-links"><a class="outline-button" href="https://www.google.com/maps/search/?api=1&amp;query=John%20Calhoun%20Electric%20Roanoke%20VA" target="_blank" rel="noopener noreferrer">Read all Google reviews</a><a class="outline-button" href="https://www.google.com/maps/search/?api=1&amp;query=John%20Calhoun%20Electric%20Roanoke%20VA" target="_blank" rel="noopener noreferrer">Leave a Google review</a></div>
-      </div>
-    </section>
+
+    <div class="reviews-services-divider" aria-hidden="true"><span></span></div>
 
     <section id="systems" class="lifetime section-white">
       <div class="wide">
         <div class="center-heading reveal"><p class="overline">Electrical &amp; HVAC</p><h2>ROANOKE ELECTRICAL &amp; HVAC SERVICES FOR <span>HOME &amp; BUSINESS.</span></h2><p class="heading-copy">From our largest commercial project to our smallest residential service call, we are committed to making our work 100% right, 100% of the time.</p></div>
         <div class="system-grid">
-          <a id="electrical-services" class="system-card reveal" href="electrician-roanoke-va/index.html"><img class="system-photo" src="assets/residential-electrician-roanoke.png" alt="Electrician working on residential wiring in Roanoke, Virginia"><h3>Residential Electrical in Roanoke</h3><p>Electrical service, repairs, and custom remodeling solutions for your home.</p></a>
-          <a class="system-card reveal" href="commercial-electrician-roanoke-va/index.html"><img class="system-photo" src="assets/commercial-electrician-roanoke.png" alt="Commercial electrician installing wiring in a Roanoke, Virginia building"><h3>Commercial Electrical in Roanoke</h3><p>Electrical service for new commercial construction, projects, and business remodels.</p></a>
-          <a id="hvac-services" class="system-card reveal" href="hvac-services-roanoke-va/index.html"><img class="system-photo" src="assets/hvac-technician-roanoke.png" alt="HVAC technician servicing rooftop equipment in Roanoke, Virginia"><h3>HVAC Services in Roanoke</h3><p>Heating and cooling service for residential and light commercial projects.</p></a>
+          <a id="hvac-services" class="system-card reveal" href="hvac-services/index.html"><img class="system-photo" src="assets/hvac-technician-roanoke.png" alt="HVAC technician servicing equipment in Roanoke, Virginia"><h3>Residential and Commercial HVAC Services</h3><p>Heating, cooling, repair, replacement, and installation services for homes and businesses.</p></a>
+          <a id="electrical-services" class="system-card reveal" href="electrical-services/index.html"><img class="system-photo" src="assets/commercial-electrician-roanoke.png" alt="Electrician installing wiring in a Roanoke, Virginia building"><h3>Residential and Commercial Electrical Services</h3><p>Electrical service, repairs, installations, construction projects, and remodeling solutions.</p></a>
         </div>
       </div>
     </section>
@@ -149,16 +154,15 @@
 
     <section id="contact" class="contact diagonal-top">
       <div class="dark-overlay"></div>
-      <div class="wide contact-grid reveal">
-        <div><p class="overline green">Electrical &amp; HVAC service</p><h2>LET'S GET<br>STARTED.</h2><p>Tell us what your home, business, or next project needs. Our team is ready to help.</p><a href="tel:+15403001982" class="contact-phone">(540) 300-1982</a><p>Monday–Friday: 8 a.m.–6 p.m.</p></div>
+      <div class="wide contact-grid">
+        <div><h2>LET'S GET<br>STARTED.</h2><p>Tell us what your home, business, or next project needs. Our team is ready to help.</p><a href="tel:+15403001982" class="contact-phone">(540) 300-1982</a><p>Monday–Friday: 8 a.m.–6 p.m.</p></div>
         <form id="contact-form" class="contact-form">
           <label><span>Name</span><input type="text" placeholder="First and last name" required></label>
           <label><span>Phone</span><input type="tel" placeholder="(000) 000-0000" required></label>
           <label><span>Email</span><input type="email" placeholder="you@example.com" required></label>
           <label><span>Property ZIP</span><input type="text" inputmode="numeric" placeholder="00000"></label>
-          <label class="form-wide"><span>Service</span><select><option>Choose a service</option><option>Residential electrical</option><option>Commercial electrical</option><option>Electrical repair</option><option>Custom remodel</option><option>Residential HVAC</option><option>Light commercial HVAC</option></select></label>
+          <label class="form-wide"><span>Service</span><select><option value="">Choose a service</option><optgroup label="Air Conditioning"><option>AC Repair</option><option>AC Installation &amp; Replacement</option><option>AC Maintenance &amp; Tune-Ups</option><option>Ductless Mini Splits</option><option>Commercial HVAC Services</option></optgroup><optgroup label="Heating"><option>Heating Repair</option><option>Heating Installation &amp; Replacement</option><option>Heat Pump Services</option><option>Furnace Services</option><option>Heating Maintenance &amp; Tune-Ups</option><option>Commercial HVAC Services</option></optgroup><optgroup label="Electrical"><option>Electrical Repair &amp; Troubleshooting</option><option>Panel Replacement</option><option>Residential Electrical Installation &amp; Upgrades</option><option>Outdoor Service Replacement</option><option>Wiring &amp; Rewiring</option><option>Generators</option><option>EV Chargers</option><option>Commercial Electrical Services</option></optgroup></select></label>
           <label class="form-wide"><span>Project details</span><textarea placeholder="Tell us about your project"></textarea></label>
-          <label class="form-wide upload"><span>Optional project photo</span><input type="file" accept="image/*"></label>
           <button class="solid-button" type="submit">Request Service</button>
           <p class="form-message" role="status"></p>
         </form>
@@ -167,11 +171,11 @@
   </main>
 
   <footer>
-    <div class="wide footer-main">
-      <div><a class="brand footer-brand" href="#top"><img class="brand-logo" src="assets/john-calhoun-electric-logo.png" alt="John Calhoun Electric"></a><p>Full electrical and HVAC service for Central and Western Virginia.</p></div>
-      <div><h3>Company</h3><a href="about/index.html">About us</a><a href="commercial-electrician-roanoke-va/index.html">Our work</a><a href="#faq">Resources</a><a href="#contact">Contact</a></div>
-      <div><h3>Services</h3><a href="electrician-roanoke-va/index.html">Residential electrical</a><a href="commercial-electrician-roanoke-va/index.html">Commercial electrical</a><a href="electrical-repair-roanoke-va/index.html">Electrical repair</a><a href="hvac-services-roanoke-va/index.html">HVAC services</a></div>
-      <div><h3>Get in touch</h3><p>3 8th Street SW<br>Roanoke, VA 24016</p><a href="tel:+15403001982">(540) 300-1982</a><p>Monday–Friday: 8 a.m.–6 p.m.<br>Class “A” Electrical Contractor</p></div>
+    <div class="wide footer-main footer-sitemap">
+      <div><h3>Air Conditioning</h3><a href="ac-repair/index.html">AC Repair</a><a href="ac-installation-replacement/index.html">AC Installation &amp; Replacement</a><a href="ac-maintenance-tune-ups/index.html">AC Maintenance &amp; Tune-Ups</a><a href="ductless-mini-splits/index.html">Ductless Mini Splits</a><a href="commercial-hvac-services/index.html">Commercial HVAC Services</a></div>
+      <div><h3>Heating</h3><a href="heating-repair/index.html">Heating Repair</a><a href="heating-installation-replacement/index.html">Heating Installation &amp; Replacement</a><a href="heat-pump-services/index.html">Heat Pump Services</a><a href="furnace-services/index.html">Furnace Services</a><a href="heating-maintenance-tune-ups/index.html">Heating Maintenance &amp; Tune-Ups</a><a href="commercial-hvac-services/index.html">Commercial HVAC Services</a></div>
+      <div><h3>Electrical</h3><a href="electrical-repair-troubleshooting/index.html">Electrical Repair &amp; Troubleshooting</a><a href="panel-replacement/index.html">Panel Replacement</a><a href="residential-electrical-installation-upgrades/index.html">Residential Installation &amp; Upgrades</a><a href="outdoor-service-replacement/index.html">Outdoor Service Replacement</a><a href="wiring-rewiring/index.html">Wiring &amp; Rewiring</a><a href="generators/index.html">Generators</a><a href="ev-chargers/index.html">EV Chargers</a><a href="commercial-electrical-services/index.html">Commercial Electrical Services</a></div>
+      <div><h3>Company</h3><a href="about/index.html">About Us</a><a href="#contact">Service Area</a></div>
     </div>
     <div class="wide footer-bottom"><span>&copy; <span id="year"></span> John Calhoun Electric.</span><span>Central &amp; Western Virginia&nbsp;&nbsp;|&nbsp;&nbsp;Local &amp; family-owned</span></div>
   </footer>
@@ -179,6 +183,7 @@
     <span class="sticky-call-icon" aria-hidden="true">☎</span>
     <span><small>Call John Calhoun Electric</small><strong>(540) 300-1982</strong></span>
   </a>
+  <script src="shared-header.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

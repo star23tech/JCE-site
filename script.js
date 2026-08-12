@@ -1,17 +1,3 @@
-const menuButton = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.main-nav');
-
-menuButton.addEventListener('click', () => {
-  const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-  menuButton.setAttribute('aria-expanded', String(!isOpen));
-  nav.classList.toggle('open');
-});
-
-nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuButton.setAttribute('aria-expanded', 'false');
-}));
-
 document.querySelectorAll('.faq-item button').forEach(button => {
   button.addEventListener('click', () => {
     const item = button.closest('.faq-item');
@@ -39,10 +25,35 @@ function showTestimonial(index) {
     slide.classList.toggle('active', isActive);
     slide.setAttribute('aria-hidden', String(!isActive));
   });
+  document.querySelectorAll('.testimonial-pagination button').forEach((button, buttonIndex) => {
+    const isActive = buttonIndex === activeTestimonial;
+    button.classList.toggle('active', isActive);
+    button.setAttribute('aria-current', String(isActive));
+  });
 }
 
-document.querySelector('.testimonial-prev').addEventListener('click', () => showTestimonial(activeTestimonial - 1));
-document.querySelector('.testimonial-next').addEventListener('click', () => showTestimonial(activeTestimonial + 1));
+document.querySelectorAll('.testimonial-pagination button').forEach((button, index) => button.addEventListener('click', () => showTestimonial(index)));
+
+const testimonialCarousel = document.querySelector('.testimonial-carousel');
+let testimonialTimer;
+
+function startTestimonialLoop() {
+  clearInterval(testimonialTimer);
+  testimonialTimer = setInterval(() => showTestimonial(activeTestimonial + 1), 6000);
+}
+
+function stopTestimonialLoop() {
+  clearInterval(testimonialTimer);
+}
+
+if (testimonialCarousel && testimonialSlides.length > 1) {
+  startTestimonialLoop();
+  testimonialCarousel.addEventListener('mouseenter', stopTestimonialLoop);
+  testimonialCarousel.addEventListener('mouseleave', startTestimonialLoop);
+  testimonialCarousel.addEventListener('focusin', stopTestimonialLoop);
+  testimonialCarousel.addEventListener('focusout', startTestimonialLoop);
+  document.addEventListener('visibilitychange', () => document.hidden ? stopTestimonialLoop() : startTestimonialLoop());
+}
 
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
