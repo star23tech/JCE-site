@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="shared-header.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,13 +54,13 @@
       "name": "Electrical and HVAC Services",
       "itemListElement": [
         {"@type": "OfferCatalog", "name": "Electrical Services", "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential Electrical Service and Repairs", "url": "https://johncalhounelectric.com/electrician-roanoke-va/"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Electrical Contracting", "url": "https://johncalhounelectric.com/commercial-electrician-roanoke-va/"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Electrical Repair", "url": "https://johncalhounelectric.com/electrical-repair-roanoke-va/"}}
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential Electrical Service and Repairs"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Electrical Contracting"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Electrical Repair"}}
         ]},
         {"@type": "OfferCatalog", "name": "HVAC Services", "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential and Light Commercial HVAC Service", "url": "https://johncalhounelectric.com/hvac-services-roanoke-va/"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HVAC Repair", "url": "https://johncalhounelectric.com/hvac-repair-roanoke-va/"}}
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Residential and Light Commercial HVAC Service"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HVAC Repair"}}
         ]}
       ]
     }
@@ -67,14 +68,22 @@
   </script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="John Calhoun Electric home"><img class="brand-logo" src="assets/john-calhoun-electric-logo.png" alt="John Calhoun Electric"></a>
+  <div class="top-service-bar" aria-label="Five-star reviews and 24/7 service">
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=John%20Calhoun%20Electric%20Roanoke%20VA" aria-label="Read our reviews on Google Maps"><span class="top-stars" aria-hidden="true">★★★★★</span> Read our Reviews</a>
+    <strong>24/7 Service</strong>
+  </div>
+  <header class="site-header standard-header">
+    <a class="brand header-wordmark" href="#top" aria-label="John Calhoun Electric and HVAC home">
+      <strong>John Calhoun</strong>
+      <span>– Electric <b>|</b> HVAC –</span>
+    </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
     <nav id="main-nav" class="main-nav" aria-label="Main navigation">
-      <a href="about/index.html">About</a>
-      <a href="#systems">Services</a>
-      <a href="commercial-electrician-roanoke-va/index.html">Our work</a>
-      <a href="#faq">Resources</a>
+      <a href="#hvac-services">Air Conditioning</a>
+      <a href="#hvac-services">Heating</a>
+      <a href="#electrical-services">Electrical</a>
+      <a href="about/index.html">About Us</a>
+      <a href="#contact">Contact</a>
     </nav>
     <a class="header-call" href="tel:+15403001982">Call us (540) 300-1982</a>
   </header>
@@ -86,14 +95,10 @@
       </video>
       <div class="hero-overlay"></div>
       <div class="hero-copy">
-        <p class="hero-kicker animate-in">Local expertise. Proven service.</p>
+   
         <h1 class="animate-in delay-1">Electrical &amp; HVAC Services in Roanoke, VA</h1>
         <p class="hero-sub animate-in delay-2"><span>Class “A” contractor</span> <strong>20+ years of experience</strong></p>
         <p class="hero-answer animate-in delay-2">John Calhoun Electric provides residential and commercial electrical and HVAC services throughout Roanoke and surrounding Virginia communities. Our local Class “A” contractor brings more than 20 years of field experience to repairs, installations, remodels, and new construction.</p>
-        <div class="hero-actions animate-in delay-3">
-          <a class="outline-button" href="electrician-roanoke-va/index.html">Electrical Services</a>
-          <a class="outline-button" href="hvac-services-roanoke-va/index.html">HVAC Services</a>
-        </div>
       </div>
     </section>
     <div class="trust-bar" aria-hidden="true"></div>
@@ -125,9 +130,9 @@
       <div class="wide">
         <div class="center-heading reveal"><p class="overline">Electrical &amp; HVAC</p><h2>ROANOKE ELECTRICAL &amp; HVAC SERVICES FOR <span>HOME &amp; BUSINESS.</span></h2><p class="heading-copy">From our largest commercial project to our smallest residential service call, we are committed to making our work 100% right, 100% of the time.</p></div>
         <div class="system-grid">
-          <a id="electrical-services" class="system-card reveal" href="electrician-roanoke-va/index.html"><img class="system-photo" src="assets/residential-electrician-roanoke.png" alt="Electrician working on residential wiring in Roanoke, Virginia"><h3>Residential Electrical in Roanoke</h3><p>Electrical service, repairs, and custom remodeling solutions for your home.</p></a>
-          <a class="system-card reveal" href="commercial-electrician-roanoke-va/index.html"><img class="system-photo" src="assets/commercial-electrician-roanoke.png" alt="Commercial electrician installing wiring in a Roanoke, Virginia building"><h3>Commercial Electrical in Roanoke</h3><p>Electrical service for new commercial construction, projects, and business remodels.</p></a>
-          <a id="hvac-services" class="system-card reveal" href="hvac-services-roanoke-va/index.html"><img class="system-photo" src="assets/hvac-technician-roanoke.png" alt="HVAC technician servicing rooftop equipment in Roanoke, Virginia"><h3>HVAC Services in Roanoke</h3><p>Heating and cooling service for residential and light commercial projects.</p></a>
+          <a id="electrical-services" class="system-card reveal" href="#contact"><img class="system-photo" src="assets/residential-electrician-roanoke.png" alt="Electrician working on residential wiring in Roanoke, Virginia"><h3>Residential Electrical in Roanoke</h3><p>Electrical service, repairs, and custom remodeling solutions for your home.</p></a>
+          <a class="system-card reveal" href="#contact"><img class="system-photo" src="assets/commercial-electrician-roanoke.png" alt="Commercial electrician installing wiring in a Roanoke, Virginia building"><h3>Commercial Electrical in Roanoke</h3><p>Electrical service for new commercial construction, projects, and business remodels.</p></a>
+          <a id="hvac-services" class="system-card reveal" href="#contact"><img class="system-photo" src="assets/hvac-technician-roanoke.png" alt="HVAC technician servicing rooftop equipment in Roanoke, Virginia"><h3>HVAC Services in Roanoke</h3><p>Heating and cooling service for residential and light commercial projects.</p></a>
         </div>
       </div>
     </section>
@@ -169,8 +174,8 @@
   <footer>
     <div class="wide footer-main">
       <div><a class="brand footer-brand" href="#top"><img class="brand-logo" src="assets/john-calhoun-electric-logo.png" alt="John Calhoun Electric"></a><p>Full electrical and HVAC service for Central and Western Virginia.</p></div>
-      <div><h3>Company</h3><a href="about/index.html">About us</a><a href="commercial-electrician-roanoke-va/index.html">Our work</a><a href="#faq">Resources</a><a href="#contact">Contact</a></div>
-      <div><h3>Services</h3><a href="electrician-roanoke-va/index.html">Residential electrical</a><a href="commercial-electrician-roanoke-va/index.html">Commercial electrical</a><a href="electrical-repair-roanoke-va/index.html">Electrical repair</a><a href="hvac-services-roanoke-va/index.html">HVAC services</a></div>
+      <div><h3>Company</h3><a href="about/index.html">About us</a><a href="#systems">Our work</a><a href="#faq">Resources</a><a href="#contact">Contact</a></div>
+      <div><h3>Services</h3><a href="#electrical-services">Residential electrical</a><a href="#electrical-services">Commercial electrical</a><a href="#electrical-services">Electrical repair</a><a href="#hvac-services">HVAC services</a></div>
       <div><h3>Get in touch</h3><p>3 8th Street SW<br>Roanoke, VA 24016</p><a href="tel:+15403001982">(540) 300-1982</a><p>Monday–Friday: 8 a.m.–6 p.m.<br>Class “A” Electrical Contractor</p></div>
     </div>
     <div class="wide footer-bottom"><span>&copy; <span id="year"></span> John Calhoun Electric.</span><span>Central &amp; Western Virginia&nbsp;&nbsp;|&nbsp;&nbsp;Local &amp; family-owned</span></div>
@@ -179,6 +184,7 @@
     <span class="sticky-call-icon" aria-hidden="true">☎</span>
     <span><small>Call John Calhoun Electric</small><strong>(540) 300-1982</strong></span>
   </a>
+  <script src="shared-header.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
