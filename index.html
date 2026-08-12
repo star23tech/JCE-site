@@ -99,6 +99,7 @@
         <h1 class="animate-in delay-1">Electrical &amp; HVAC Services in Roanoke, VA</h1>
         <p class="hero-sub animate-in delay-2"><span>Class “A” contractor</span> <strong>20+ years of experience</strong></p>
         <p class="hero-answer animate-in delay-2">John Calhoun Electric provides residential and commercial electrical and HVAC services throughout Roanoke and surrounding Virginia communities. Our local Class “A” contractor brings more than 20 years of field experience to repairs, installations, remodels, and new construction.</p>
+        <div class="hero-actions animate-in delay-3"><a class="outline-button" href="hvac-services/index.html">HVAC Services</a><a class="outline-button" href="electrical-services/index.html">Electrical Services</a></div>
       </div>
     </section>
     <div class="reviews-services-divider" aria-hidden="true"><span></span></div>
@@ -153,16 +154,15 @@
 
     <section id="contact" class="contact diagonal-top">
       <div class="dark-overlay"></div>
-      <div class="wide contact-grid reveal">
-        <div><p class="overline green">Electrical &amp; HVAC service</p><h2>LET'S GET<br>STARTED.</h2><p>Tell us what your home, business, or next project needs. Our team is ready to help.</p><a href="tel:+15403001982" class="contact-phone">(540) 300-1982</a><p>Monday–Friday: 8 a.m.–6 p.m.</p></div>
+      <div class="wide contact-grid">
+        <div><h2>LET'S GET<br>STARTED.</h2><p>Tell us what your home, business, or next project needs. Our team is ready to help.</p><a href="tel:+15403001982" class="contact-phone">(540) 300-1982</a><p>Monday–Friday: 8 a.m.–6 p.m.</p></div>
         <form id="contact-form" class="contact-form">
           <label><span>Name</span><input type="text" placeholder="First and last name" required></label>
           <label><span>Phone</span><input type="tel" placeholder="(000) 000-0000" required></label>
           <label><span>Email</span><input type="email" placeholder="you@example.com" required></label>
           <label><span>Property ZIP</span><input type="text" inputmode="numeric" placeholder="00000"></label>
-          <label class="form-wide"><span>Service</span><select><option>Choose a service</option><option>Residential electrical</option><option>Commercial electrical</option><option>Electrical repair</option><option>Custom remodel</option><option>Residential HVAC</option><option>Light commercial HVAC</option></select></label>
+          <label class="form-wide"><span>Service</span><select><option value="">Choose a service</option><optgroup label="Air Conditioning"><option>AC Repair</option><option>AC Installation &amp; Replacement</option><option>AC Maintenance &amp; Tune-Ups</option><option>Ductless Mini Splits</option><option>Commercial HVAC Services</option></optgroup><optgroup label="Heating"><option>Heating Repair</option><option>Heating Installation &amp; Replacement</option><option>Heat Pump Services</option><option>Furnace Services</option><option>Heating Maintenance &amp; Tune-Ups</option><option>Commercial HVAC Services</option></optgroup><optgroup label="Electrical"><option>Electrical Repair &amp; Troubleshooting</option><option>Panel Replacement</option><option>Residential Electrical Installation &amp; Upgrades</option><option>Outdoor Service Replacement</option><option>Wiring &amp; Rewiring</option><option>Generators</option><option>EV Chargers</option><option>Commercial Electrical Services</option></optgroup></select></label>
           <label class="form-wide"><span>Project details</span><textarea placeholder="Tell us about your project"></textarea></label>
-          <label class="form-wide upload"><span>Optional project photo</span><input type="file" accept="image/*"></label>
           <button class="solid-button" type="submit">Request Service</button>
           <p class="form-message" role="status"></p>
         </form>
