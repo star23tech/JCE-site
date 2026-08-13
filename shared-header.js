@@ -1,3 +1,18 @@
+document.body.classList.add('homepage-theme');
+
+if (!document.querySelector('link[href$="homepage-theme.css"]')) {
+  const sharedThemeLink = document.createElement('link');
+  sharedThemeLink.rel = 'stylesheet';
+  sharedThemeLink.href = document.body.classList.contains('subpage-shell') ? '../homepage-theme.css' : 'homepage-theme.css';
+  document.head.appendChild(sharedThemeLink);
+}
+
+const sharedAssetPrefix = document.body.classList.contains('subpage-shell') ? '../' : '';
+const sharedWordmark = document.querySelector('.standard-header .header-wordmark');
+if (sharedWordmark) {
+  sharedWordmark.innerHTML = `<img class="header-brand-logo" src="${sharedAssetPrefix}assets/john-calhoun-electric-logo.png" alt="John Calhoun Electric and HVAC">`;
+}
+
 const sharedMenuButton = document.querySelector('.menu-toggle');
 const sharedNav = document.querySelector('.main-nav');
 const sharedHeaderCall = document.querySelector('.standard-header .header-call');
