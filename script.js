@@ -70,4 +70,7 @@ document.getElementById('contact-form').addEventListener('submit', event => {
   event.currentTarget.querySelector('.form-message').textContent = 'Thanks! This demo form is ready to connect to your preferred form service.';
 });
 
-document.getElementById('year').textContent = new Date().getFullYear();
+// The footer year is filled in by shared-header.js via .shared-year. This stays as a
+// null-safe fallback for any page that still uses the older #year element.
+const legacyYear = document.getElementById('year');
+if (legacyYear) legacyYear.textContent = new Date().getFullYear();

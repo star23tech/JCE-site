@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed 's/<h1[^>]*>//')",
+      "Bash(gh api *)",
+      "WebFetch(domain:star23tech.github.io)",
+      "Bash(python -c ' *)",
+      "Bash(grep -v 'index\\\\\\\\\\\\.html')"
+    ]
+  }
+}
