@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Page Not Found | John Calhoun Electric</title>
+  <!-- Styles are inlined because this page can be served from any URL depth,
+       where a relative stylesheet path would not resolve. -->
+  <style>
+    :root{--green:#d5b900;--black:#050505;--white:#fff;--soft:#f4f4f2;--line:#d9d9d5}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+         padding:40px 24px;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--black);background:var(--white);text-align:center}
+    a{color:inherit}
+    .code{font-size:clamp(72px,14vw,150px);line-height:.9;font-weight:900;letter-spacing:-.055em;color:var(--green);margin:0}
+    h1{font-size:clamp(28px,4vw,46px);line-height:1.05;text-transform:uppercase;letter-spacing:-.03em;font-weight:900;margin:18px 0 0}
+    .lede{max-width:560px;color:#555;line-height:1.7;margin:18px auto 0}
+    .actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 24px;border:3px solid var(--black);
+         background:var(--black);color:#fff;text-transform:uppercase;font-weight:900;font-size:13px;letter-spacing:.025em;text-decoration:none;transition:.2s}
+    .btn:hover{background:var(--green);border-color:var(--green)}
+    .btn.secondary{background:transparent;color:var(--black)}
+    .btn.secondary:hover{background:var(--black);color:#fff;border-color:var(--black)}
+    nav.links{margin-top:46px;padding-top:30px;border-top:1px solid var(--line);width:min(100%,760px)}
+    nav.links h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#777;font-weight:900;margin:0 0 16px}
+    nav.links ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center}
+    nav.links a{font-size:14px;font-weight:700;text-decoration:none;border-bottom:2px solid transparent}
+    nav.links a:hover{border-color:var(--green)}
+    .contact{margin-top:40px;font-size:14px;color:#555}
+    .contact strong{display:block;font-size:22px;font-weight:900;color:var(--green);margin-top:4px}
+  </style>
+</head>
+<body>
+  <p class="code">404</p>
+  <h1>This page moved or never existed</h1>
+  <p class="lede">The page you were looking for is not here. If you need electrical or HVAC service in the Roanoke area, the links below will get you where you were going.</p>
+
+  <div class="actions">
+    <a class="btn" href="/">Go to the homepage</a>
+    <a class="btn secondary" href="tel:+15403001982">Call (540) 300-1982</a>
+  </div>
+
+  <nav class="links" aria-label="Popular pages">
+    <h2>Popular pages</h2>
+    <ul>
+      <li><a href="/hvac-services/">HVAC Services</a></li>
+      <li><a href="/electrical-services/">Electrical Services</a></li>
+      <li><a href="/ac-repair/">AC Repair</a></li>
+      <li><a href="/heating-repair/">Heating Repair</a></li>
+      <li><a href="/panel-replacement/">Panel Replacement</a></li>
+      <li><a href="/service-area/">Service Area</a></li>
+      <li><a href="/about/">About Us</a></li>
+    </ul>
+  </nav>
+
+  <p class="contact">
+    John Calhoun Electric &middot; Roanoke, VA &middot; Virginia Contractor License #2705169579
+    <strong>(540) 300-1982</strong>
+  </p>
+
+  <script>
+    // Links are root-absolute so they are correct on the production domain. While the
+    // site is previewed from a GitHub Pages project subpath (/<repo>/), rewrite them to
+    // include that prefix so the demo 404 page still navigates correctly.
+    (function () {
+      var prefix = '';
+      if (/\.github\.io$/.test(location.hostname)) {
+        var repo = location.pathname.split('/')[1];
+        if (repo) {
+          prefix = '/' + repo;
+          document.querySelectorAll('a[href^="/"]').forEach(function (link) {
+            link.setAttribute('href', prefix + link.getAttribute('href'));
+          });
+        }
+      }
+      // Load analytics with the same prefix so 404s are measurable. Knowing which
+      // URLs people hit here is how you find broken inbound links worth redirecting.
+      var s = document.createElement('script');
+      s.src = prefix + '/analytics.js';
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>
