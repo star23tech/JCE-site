@@ -17,6 +17,10 @@ const sharedMenuButton = document.querySelector('.menu-toggle');
 const sharedNav = document.querySelector('.main-nav');
 const sharedHeaderCall = document.querySelector('.standard-header .header-call');
 
+if (!document.querySelector('.sticky-call')) {
+  document.body.insertAdjacentHTML('beforeend', '<a class="sticky-call" href="tel:+15403001982" aria-label="Call John Calhoun Electric at 540-300-1982"><span class="sticky-call-icon" aria-hidden="true">☎</span><span><small>Call Now</small><strong>(540) 300-1982</strong></span></a>');
+}
+
 if (sharedHeaderCall) {
   sharedHeaderCall.setAttribute('aria-label', 'Call John Calhoun Electric at 540-300-1982');
   sharedHeaderCall.innerHTML = '<span class="header-call-icon" aria-hidden="true">☎</span><span class="header-call-copy"><small>Call Now</small><strong>(540) 300-1982</strong></span>';
