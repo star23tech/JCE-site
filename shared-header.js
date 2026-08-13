@@ -81,16 +81,8 @@ if (sharedMenuButton && sharedNav) {
 
 const sharedFooter = document.querySelector('footer');
 const pagePath = window.location.pathname.replace(/index\.html$/, '').replace(/\/$/, '');
-if (pagePath.endsWith('/ac-repair')) {
-  const closingParagraph = [...document.querySelectorAll('.service-close p')].find(paragraph => paragraph.textContent.startsWith('If your AC is not cooling'));
-  if (closingParagraph) closingParagraph.innerHTML = 'If your AC is not cooling, leaking, freezing, making noise, or not turning on, contact John Calhoun Electric &amp; HVAC to schedule service. If a major failure makes continued repair impractical, we can also explain your <a href="../ac-installation-replacement/">AC installation and replacement options</a>. To help catch smaller issues before another breakdown, consider regular <a href="../ac-maintenance-tune-ups/">AC maintenance and tune-ups</a>. Businesses, property managers, and multi-unit properties can learn more about our <a href="../commercial-hvac-services/">commercial HVAC repair and troubleshooting</a>.';
-}
-  if (pagePath.endsWith('/ac-installation-replacement')) {
-  const repairParagraph = [...document.querySelectorAll('.details .content p')].find(paragraph => paragraph.textContent.startsWith('Not every broken air conditioner'));
-  if (repairParagraph) repairParagraph.innerHTML = 'Not every broken air conditioner needs a new system. Many calls can be solved with professional <a href="../ac-repair/">AC repair in Roanoke</a>, such as replacing a capacitor, motor, or contactor or correcting a drain or electrical problem. Other systems have failed compressors, leaking evaporator coils, repeated refrigerant loss, major control problems, or older R-22 equipment where continued repairs may not be a good investment. After new equipment is installed, regular <a href="../ac-maintenance-tune-ups/">AC maintenance and tune-ups</a> can help protect system performance and identify developing problems early.';
-  const equipmentParagraph = [...document.querySelectorAll('.process-list p')].find(paragraph => paragraph.textContent.startsWith('We look at the existing equipment'));
-  if (equipmentParagraph) equipmentParagraph.innerHTML = 'We look at the existing equipment, system type, home, and installation. For rooms or additions where new ductwork is impractical, we can also discuss <a href="../ductless-mini-splits/">ductless mini split installation</a>. Business and property-management projects are supported through our <a href="../commercial-hvac-services/">commercial HVAC services</a>. The goal is equipment that keeps the property comfortable without paying for more system than you need.';
-}
+// The contextual internal links these blocks used to inject now live in the page
+// HTML itself, so crawlers that do not execute JavaScript can see them.
 if (sharedFooter) {
   const footerPrefix = document.body.classList.contains('subpage-shell') ? '../' : '';
   // The footer is authored statically in every page so crawlers that do not run
