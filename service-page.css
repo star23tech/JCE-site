@@ -11,6 +11,7 @@ img,video{max-width:100%;height:auto}.service-hero h1,.content h2,.content h3{ov
 .problem-grid.balanced-grid article:last-child{grid-column:auto}
 .service-close--left{text-align:left}
 .process-list--unnumbered article{grid-template-columns:1fr}
+.maintenance-frequency-image--handoff{object-position:left bottom}
 .service-overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.service-overview-grid article{display:flex;flex-direction:column;padding:30px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--accent)}.service-overview-grid h3{margin:0 0 12px}.service-overview-grid h3 a{text-decoration:none}.service-overview-grid p{margin:0 0 22px}.service-card-link{margin-top:auto;color:var(--ink);font-size:12px;font-weight:900;text-decoration:none;text-transform:uppercase;letter-spacing:.04em}.service-card-link span{color:var(--accent);font-size:18px;margin-left:5px}@media(max-width:760px){.service-overview-grid{grid-template-columns:1fr}.service-overview-grid article{padding:24px}}
 
 /* Service area page */
