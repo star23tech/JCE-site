@@ -94,17 +94,10 @@
       <div class="contact-form-panel" id="request-service">
         <h2 class="form-heading">Request Service</h2>
         <p class="form-intro">Send us the details and we will call you back to set a time.</p>
-        <!-- FORMSPREE SETUP:
-             1. Replace YOUR_FORM_ID below with the ID from your Formspree form.
-             2. The _next field sends users to /thank-you/ after a successful post,
-                which is what analytics.js counts as the generate_lead conversion.
-                Update the domain there when the site moves off the demo host.
-             3. _gotcha is a honeypot — leave it hidden and empty.
-             The form will not submit successfully until step 1 is done. -->
-        <form class="service-contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <input type="hidden" name="_next" value="https://johncalhounelectric.com/thank-you/">
-          <input type="hidden" name="_subject" value="New service request from johncalhounelectric.com">
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot">
+        <form class="service-contact-form" id="contact-form">
+          <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+            <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
 
           <label><span>Name</span><input type="text" name="name" placeholder="First and last name" autocomplete="name" required></label>
           <label><span>Phone</span><input type="tel" name="phone" placeholder="(000) 000-0000" autocomplete="tel" required></label>
@@ -141,6 +134,7 @@
           </label>
           <label class="form-wide"><span>Project details</span><textarea name="message" rows="5" placeholder="Tell us about your project"></textarea></label>
           <button class="button form-submit" type="submit">Request Service</button>
+          <p class="form-message" role="status"></p>
         </form>
       </div>
     </section>
@@ -160,6 +154,7 @@
     <div class="footer-bottom"><span>&copy; <span class="shared-year">2026</span> John Calhoun Electric. <b>|</b> All Rights Reserved</span></div>
   </footer>
   <script src="../shared-header.js"></script>
+  <script src="../contact-form.js"></script>
   <script src="../analytics.js"></script>
 </body>
 </html>

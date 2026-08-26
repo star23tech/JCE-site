@@ -160,12 +160,15 @@
       <div class="wide contact-grid">
         <div><h2>LET'S GET<br>STARTED.</h2><a href="tel:+15403001982" class="contact-phone">(540) 300-1982</a><p>Monday–Friday: 8 a.m.–6 p.m.</p></div>
         <form id="contact-form" class="contact-form">
-          <label><span>Name</span><input type="text" placeholder="First and last name" required></label>
-          <label><span>Phone</span><input type="tel" placeholder="(000) 000-0000" required></label>
-          <label><span>Email</span><input type="email" placeholder="you@example.com" required></label>
-          <label><span>Property ZIP</span><input type="text" inputmode="numeric" placeholder="00000"></label>
-          <label class="form-wide"><span>Service</span><select><option value="">Choose a service</option><optgroup label="Air Conditioning"><option>AC Repair</option><option>AC Installation &amp; Replacement</option><option>AC Maintenance &amp; Tune-Ups</option><option>Ductless Mini Splits</option><option>Commercial HVAC Services</option></optgroup><optgroup label="Heating"><option>Heating Repair</option><option>Heating Installation &amp; Replacement</option><option>Heat Pump Services</option><option>Furnace Services</option><option>Heating Maintenance &amp; Tune-Ups</option><option>Commercial HVAC Services</option></optgroup><optgroup label="Electrical"><option>Electrical Repair &amp; Troubleshooting</option><option>Panel Replacement</option><option>Residential Electrical Installation &amp; Upgrades</option><option>Outdoor Service Replacement</option><option>Wiring &amp; Rewiring</option><option>Generators</option><option>EV Chargers</option><option>Commercial Electrical Services</option></optgroup></select></label>
-          <label class="form-wide"><span>Project details</span><textarea placeholder="Tell us about your project"></textarea></label>
+          <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+            <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <label><span>Name</span><input type="text" name="name" placeholder="First and last name" required></label>
+          <label><span>Phone</span><input type="tel" name="phone" placeholder="(000) 000-0000" required></label>
+          <label><span>Email</span><input type="email" name="email" placeholder="you@example.com" required></label>
+          <label><span>Property ZIP</span><input type="text" name="zip" inputmode="numeric" placeholder="00000"></label>
+          <label class="form-wide"><span>Service</span><select name="service"><option value="">Choose a service</option><optgroup label="Air Conditioning"><option>AC Repair</option><option>AC Installation &amp; Replacement</option><option>AC Maintenance &amp; Tune-Ups</option><option>Ductless Mini Splits</option><option>Commercial HVAC Services</option></optgroup><optgroup label="Heating"><option>Heating Repair</option><option>Heating Installation &amp; Replacement</option><option>Heat Pump Services</option><option>Furnace Services</option><option>Heating Maintenance &amp; Tune-Ups</option><option>Commercial HVAC Services</option></optgroup><optgroup label="Electrical"><option>Electrical Repair &amp; Troubleshooting</option><option>Panel Replacement</option><option>Residential Electrical Installation &amp; Upgrades</option><option>Outdoor Service Replacement</option><option>Wiring &amp; Rewiring</option><option>Generators</option><option>EV Chargers</option><option>Commercial Electrical Services</option></optgroup></select></label>
+          <label class="form-wide"><span>Project details</span><textarea name="message" placeholder="Tell us about your project"></textarea></label>
           <button class="solid-button" type="submit">Request Service</button>
           <p class="form-message" role="status"></p>
         </form>
@@ -183,6 +186,7 @@
   </a>
   <script src="shared-header.js"></script>
   <script src="script.js"></script>
+  <script src="contact-form.js"></script>
   <script src="analytics.js"></script>
 </body>
 </html>
