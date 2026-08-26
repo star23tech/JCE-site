@@ -9,19 +9,17 @@
    an ID is present, so nothing else needs to change when you switch it on.
 
    Events sent once active:
-     contact_call   a tel: link was clicked  (header / sticky / footer / body)
-     form_submit    a contact form was submitted (engagement signal)
-     generate_lead  the /thank-you/ page loaded (THE conversion — mark this one
-                    as a key event in GA4 > Admin > Events)
+     click_to_call  a tel: link was clicked  (header / sticky / footer / body)
+     form_start     the first interaction with a contact form
+     generate_lead  the contact API confirmed a successful submission
+     form_error     the contact API rejected or could not send a submission
      review_click   an outbound click to the Google reviews listing
 
-   Note: form_submit and generate_lead are deliberately separate. Submit events
-   are unreliable when the browser navigates away mid-request, so the thank-you
-   pageview is what actually counts leads. Do not mark form_submit as a key
-   event or leads will be double counted.
+   generate_lead fires only after the contact API confirms success. Mark it as
+   the primary key event. Do not send personal form values to GA4.
 --------------------------------------------------------------------------- */
 
-const GA4_MEASUREMENT_ID = '';
+const GA4_MEASUREMENT_ID = 'G-4WDLZ1PB0M';
 
 if (GA4_MEASUREMENT_ID) {
   const gtagScript = document.createElement('script');
@@ -58,9 +56,10 @@ document.addEventListener('click', event => {
   const href = link.getAttribute('href') || '';
 
   if (href.startsWith('tel:')) {
-    trackEvent('contact_call', {
+    trackEvent('click_to_call', {
       link_location: linkLocation(link),
-      page_path: window.location.pathname
+      page_path: window.location.pathname,
+      lead_method: 'phone'
     });
   } else if (href.includes('google.com/maps')) {
     trackEvent('review_click', {
@@ -71,20 +70,28 @@ document.addEventListener('click', event => {
 });
 
 document.querySelectorAll('form').forEach(form => {
-  form.addEventListener('submit', () => {
-    trackEvent('form_submit', {
+  form.addEventListener('focusin', () => {
+    trackEvent('form_start', {
       form_id: form.getAttribute('id') || 'contact_form',
       page_path: window.location.pathname
     });
+  }, { once: true });
+});
+
+// contact-form.js emits these only after the contact API has answered.
+document.addEventListener('contact-form:success', event => {
+  trackEvent('generate_lead', {
+    form_id: event.detail?.formId || 'contact_form',
+    service_category: event.detail?.serviceCategory || 'not_selected',
+    lead_method: 'form',
+    page_path: window.location.pathname
   });
 });
 
-// The thank-you page is the reliable conversion point: it only loads after a
-// successful form post (Formspree redirects there via the _next field).
-if (window.location.pathname.replace(/\/$/, '').endsWith('/thank-you')) {
-  trackEvent('generate_lead', {
-    currency: 'USD',
-    value: 0,
+document.addEventListener('contact-form:error', event => {
+  trackEvent('form_error', {
+    form_id: event.detail?.formId || 'contact_form',
+    error_type: event.detail?.errorType || 'submission_failed',
     page_path: window.location.pathname
   });
-}
+});

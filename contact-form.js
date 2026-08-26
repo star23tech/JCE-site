@@ -22,6 +22,10 @@ if (contactForm) {
       message: fieldValue('message'),
       website: fieldValue('website')
     };
+    const analyticsDetail = {
+      formId: contactForm.id || 'contact_form',
+      serviceCategory: payload.service || 'not_selected'
+    };
 
     submitButton.disabled = true;
     submitButton.textContent = 'Sending...';
@@ -41,9 +45,18 @@ if (contactForm) {
       }
 
       formMessage.textContent = CONTACT_FORM_SUCCESS_MESSAGE;
+      document.dispatchEvent(new CustomEvent('contact-form:success', {
+        detail: analyticsDetail
+      }));
       contactForm.reset();
     } catch (error) {
       formMessage.textContent = CONTACT_FORM_ERROR_MESSAGE;
+      document.dispatchEvent(new CustomEvent('contact-form:error', {
+        detail: {
+          formId: analyticsDetail.formId,
+          errorType: error instanceof TypeError ? 'network_error' : 'api_error'
+        }
+      }));
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = 'Request Service';
