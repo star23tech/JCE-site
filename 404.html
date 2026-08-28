@@ -4,82 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>Page Not Found | John Calhoun Electric</title>
-  <!-- Styles are inlined because this page can be served from any URL depth,
-       where a relative stylesheet path would not resolve. -->
+  <title>Page Not Found | John Calhoun Electric &amp; HVAC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+  <!-- Inlined so the error page keeps its styling regardless of URL depth. -->
   <style>
-    :root{--green:#d5b900;--black:#050505;--white:#fff;--soft:#f4f4f2;--line:#d9d9d5}
-    *{box-sizing:border-box}
-    body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-         padding:40px 24px;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--black);background:var(--white);text-align:center}
-    a{color:inherit}
-    .code{font-size:clamp(72px,14vw,150px);line-height:.9;font-weight:900;letter-spacing:-.055em;color:var(--green);margin:0}
-    h1{font-size:clamp(28px,4vw,46px);line-height:1.05;text-transform:uppercase;letter-spacing:-.03em;font-weight:900;margin:18px 0 0}
-    .lede{max-width:560px;color:#555;line-height:1.7;margin:18px auto 0}
-    .actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 24px;border:3px solid var(--black);
-         background:var(--black);color:#fff;text-transform:uppercase;font-weight:900;font-size:13px;letter-spacing:.025em;text-decoration:none;transition:.2s}
-    .btn:hover{background:var(--green);border-color:var(--green)}
-    .btn.secondary{background:transparent;color:var(--black)}
-    .btn.secondary:hover{background:var(--black);color:#fff;border-color:var(--black)}
-    nav.links{margin-top:46px;padding-top:30px;border-top:1px solid var(--line);width:min(100%,760px)}
-    nav.links h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#777;font-weight:900;margin:0 0 16px}
-    nav.links ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center}
-    nav.links a{font-size:14px;font-weight:700;text-decoration:none;border-bottom:2px solid transparent}
-    nav.links a:hover{border-color:var(--green)}
-    .contact{margin-top:40px;font-size:14px;color:#555}
-    .contact strong{display:block;font-size:22px;font-weight:900;color:var(--green);margin-top:4px}
+    :root{--red:#a52a32;--red-dark:#7f2027;--navy:#12233f;--slate:#49627d;--cream:#f7f6f2;--blue-gray:#e9eef3;--text:#202832;--border:#d7dee5;--gold:#d4af37;--white:#fff}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Roboto,Arial,sans-serif;background:var(--cream);color:var(--text)}
+    body{min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}a{color:inherit}
+    .topbar{height:34px;padding:0 clamp(16px,4vw,60px);display:flex;align-items:center;justify-content:space-between;background:var(--navy);color:var(--white);border-bottom:1px solid #243b5a;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.topbar a{text-decoration:none}.stars{margin-right:7px;color:var(--gold);letter-spacing:2px}
+    .header{min-height:100px;padding:14px clamp(20px,4vw,60px);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 3px 16px rgba(18,35,63,.08)}.logo{grid-column:2;display:block}.logo img{display:block;width:min(310px,48vw);height:70px;object-fit:contain}.call{justify-self:end;padding:14px 18px;background:var(--red);color:var(--white);font-size:12px;font-weight:900;letter-spacing:.04em;text-decoration:none;text-transform:uppercase;transition:.2s}.call:hover,.call:focus-visible{background:var(--navy)}
+    main{position:relative;isolation:isolate;flex:1;display:grid;place-items:center;min-height:570px;padding:clamp(70px,10vw,135px) 24px;overflow:hidden;text-align:center;background:var(--cream)}main:before{content:"404";position:absolute;z-index:-2;left:50%;top:47%;transform:translate(-50%,-50%);color:rgba(18,35,63,.045);font-size:clamp(260px,45vw,700px);font-weight:900;line-height:.75;letter-spacing:-.09em}main:after{content:"";position:absolute;z-index:-1;left:-10%;bottom:-90px;width:65%;height:120px;background:var(--red);transform:skewY(-5deg)}
+    .error{width:min(760px,100%)}.eyebrow{margin:0 0 18px;color:var(--red);font-size:13px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}h1{margin:0;color:var(--navy);font-size:clamp(46px,7vw,86px);font-weight:900;line-height:.95;letter-spacing:-.045em;text-transform:uppercase}h1 span{display:block;color:var(--red)}.lede{max-width:620px;margin:28px auto 0;color:#526274;font-size:clamp(17px,2vw,20px);line-height:1.65}
+    .actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:38px}.button{display:inline-flex;min-height:54px;padding:0 24px;align-items:center;justify-content:center;border:3px solid var(--red);background:var(--red);color:var(--white);font-size:13px;font-weight:900;letter-spacing:.045em;text-decoration:none;text-transform:uppercase;transition:.2s}.button:hover,.button:focus-visible{background:var(--navy);border-color:var(--navy)}.button.secondary{background:transparent;color:var(--navy);border-color:var(--navy)}.button.secondary:hover,.button.secondary:focus-visible{background:var(--navy);color:var(--white)}
+    .quicklinks{margin-top:42px}.quicklinks p{margin:0 0 13px;color:#647387;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.quicklinks ul{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 26px;margin:0;padding:0;list-style:none}.quicklinks a{color:var(--navy);font-size:14px;font-weight:700;text-decoration-color:var(--red);text-underline-offset:5px}.quicklinks a:hover,.quicklinks a:focus-visible{color:var(--red)}
+    footer{padding:28px max(24px,4vw);background:var(--navy);border-top:8px solid var(--red);color:#bcc7d3;text-align:center;font-size:11px;line-height:1.7}footer b{margin:0 6px;color:var(--red)}footer a{color:var(--white);font-weight:700;text-decoration:none}
+    @media(max-width:700px){.topbar{font-size:9px;letter-spacing:.04em}.stars{letter-spacing:1px}.header{min-height:78px;grid-template-columns:1fr}.logo{grid-column:1;justify-self:center}.logo img{width:min(270px,72vw);height:52px}.call{display:none}main{min-height:620px;padding:72px 20px 96px}.actions{flex-direction:column}.button{width:100%}.quicklinks ul{gap:14px 22px}footer b{display:none}footer span{display:block}}
   </style>
 </head>
 <body>
-  <p class="code">404</p>
-  <h1>This page moved or never existed</h1>
-  <p class="lede">The page you were looking for is not here. If you need electrical or HVAC service in the Roanoke area, the links below will get you where you were going.</p>
-
-  <div class="actions">
-    <a class="btn" href="/">Go to the homepage</a>
-    <a class="btn secondary" href="tel:+15403001982">Call (540) 300-1982</a>
-  </div>
-
-  <nav class="links" aria-label="Popular pages">
-    <h2>Popular pages</h2>
-    <ul>
-      <li><a href="/hvac-services/">HVAC Services</a></li>
-      <li><a href="/electrical-services/">Electrical Services</a></li>
-      <li><a href="/ac-repair/">AC Repair</a></li>
-      <li><a href="/heating-repair/">Heating Repair</a></li>
-      <li><a href="/panel-replacement/">Panel Replacement</a></li>
-      <li><a href="/service-area/">Service Area</a></li>
-      <li><a href="/about/">About Us</a></li>
-    </ul>
-  </nav>
-
-  <p class="contact">
-    John Calhoun Electric &middot; Roanoke, VA &middot; Virginia Contractor License #2705169579
-    <strong>(540) 300-1982</strong>
-  </p>
-
+  <div class="topbar" aria-label="Five-star reviews and service availability"><a href="https://www.google.com/maps/search/?api=1&amp;query=John%20Calhoun%20Electric%20Roanoke%20VA"><span class="stars" aria-hidden="true">★★★★★</span> Read our reviews</a><strong>24/7 Service</strong></div>
+  <header class="header"><a class="logo" href="/" aria-label="John Calhoun Electric and HVAC home"><img src="/assets/john-calhoun-electric-logo.png" alt="John Calhoun Electric and HVAC"></a><a class="call" href="tel:+15403001982">Call us (540) 300-1982</a></header>
+  <main>
+    <section class="error" aria-labelledby="error-title">
+      <p class="eyebrow">Error 404</p>
+      <h1 id="error-title">Looks like this page <span>lost power.</span></h1>
+      <p class="lede">The page you’re looking for may have moved. Let’s get you connected to the right place.</p>
+      <div class="actions"><a class="button" href="/">Back to homepage</a><a class="button secondary" href="tel:+15403001982">Call now</a></div>
+      <nav class="quicklinks" aria-label="Popular pages"><p>Or choose a service</p><ul><li><a href="/hvac-services/">HVAC Services</a></li><li><a href="/electrical-services/">Electrical Services</a></li><li><a href="/ac-repair/">AC Repair</a></li><li><a href="/heating-repair/">Heating Repair</a></li><li><a href="/service-area/">Service Area</a></li></ul></nav>
+    </section>
+  </main>
+  <footer><span>John Calhoun Electric &amp; HVAC</span><b>•</b><span>3 8th Street SW, Roanoke, VA 24016</span><b>•</b><a href="tel:+15403001982">(540) 300-1982</a></footer>
   <script>
-    // Links are root-absolute so they are correct on the production domain. While the
-    // site is previewed from a GitHub Pages project subpath (/<repo>/), rewrite them to
-    // include that prefix so the demo 404 page still navigates correctly.
-    (function () {
-      var prefix = '';
-      if (/\.github\.io$/.test(location.hostname)) {
-        var repo = location.pathname.split('/')[1];
-        if (repo) {
-          prefix = '/' + repo;
-          document.querySelectorAll('a[href^="/"]').forEach(function (link) {
-            link.setAttribute('href', prefix + link.getAttribute('href'));
-          });
-        }
-      }
-      // Load analytics with the same prefix so 404s are measurable. Knowing which
-      // URLs people hit here is how you find broken inbound links worth redirecting.
-      var s = document.createElement('script');
-      s.src = prefix + '/analytics.js';
-      document.body.appendChild(s);
-    })();
+    (function(){var prefix='';if(/\.github\.io$/.test(location.hostname)){var repo=location.pathname.split('/')[1];if(repo){prefix='/'+repo;document.querySelectorAll('[href^="/"], [src^="/"]').forEach(function(element){var attribute=element.hasAttribute('href')?'href':'src';element.setAttribute(attribute,prefix+element.getAttribute(attribute));});}}var analytics=document.createElement('script');analytics.src=prefix+'/analytics.js';document.body.appendChild(analytics);})();
   </script>
 </body>
 </html>
