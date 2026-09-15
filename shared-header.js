@@ -322,6 +322,17 @@ if (sharedFooter) {
     sharedFooter.innerHTML = `<div class="footer-main footer-sitemap"><div><h3>Air Conditioning</h3><a href="${footerPrefix}ac-repair/">AC Repair</a><a href="${footerPrefix}ac-installation-replacement/">AC Installation & Replacement</a><a href="${footerPrefix}ac-maintenance-tune-ups/">AC Maintenance & Tune-Ups</a><a href="${footerPrefix}ductless-mini-splits/">Ductless Mini Splits</a><a href="${footerPrefix}commercial-hvac-services/">Commercial HVAC Services</a></div><div><h3>Heating</h3><a href="${footerPrefix}heating-repair/">Heating Repair</a><a href="${footerPrefix}heating-installation-replacement/">Heating Installation & Replacement</a><a href="${footerPrefix}heat-pump-services/">Heat Pump Services</a><a href="${footerPrefix}furnace-services/">Furnace Services</a><a href="${footerPrefix}heating-maintenance-tune-ups/">Heating Maintenance & Tune-Ups</a><a href="${footerPrefix}commercial-hvac-services/">Commercial HVAC Services</a></div><div><h3>Electrical</h3><a href="${footerPrefix}electrical-repair-troubleshooting/">Electrical Repair & Troubleshooting</a><a href="${footerPrefix}panel-replacement/">Panel Replacement</a><a href="${footerPrefix}residential-electrical-installation-upgrades/">Residential Installation & Upgrades</a><a href="${footerPrefix}outdoor-service-replacement/">Outdoor Service Replacement</a><a href="${footerPrefix}wiring-rewiring/">Wiring & Rewiring</a><a href="${footerPrefix}generators/">Generators</a><a href="${footerPrefix}ev-chargers/">EV Chargers</a><a href="${footerPrefix}commercial-electrical-services/">Commercial Electrical Services</a></div><div><h3>Company</h3><a href="${footerPrefix}about/">About Us</a><a href="${footerPrefix}service-area/">Service Area</a><div class="footer-socials" aria-label="John Calhoun Electric social media"><a href="https://www.facebook.com/JohnCalhounElectric" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span aria-hidden="true">f</span></a><a href="https://www.instagram.com/john_calhoun_electric/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span aria-hidden="true">ig</span></a><a href="https://www.linkedin.com/company/john-calhoun-electric/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span aria-hidden="true">in</span></a><a href="https://twitter.com/JCE_Official" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><span aria-hidden="true">X</span></a></div></div></div><div class="footer-bottom"><span>&copy; <span class="shared-year"></span> John Calhoun Electric. <b>|</b> All Rights Reserved</span></div>`;
   }
 
+  const companyHeading = [...sharedFooter.querySelectorAll('.footer-sitemap h3')].find(heading => heading.textContent.trim() === 'Company');
+  const companyColumn = companyHeading?.parentElement;
+  if (companyColumn && ![...companyColumn.querySelectorAll(':scope > a')].some(link => link.textContent.trim() === 'Careers')) {
+    const careersLink = document.createElement('a');
+    careersLink.href = `${footerPrefix}careers/`;
+    careersLink.textContent = 'Careers';
+    const serviceAreaLink = [...companyColumn.querySelectorAll(':scope > a')].find(link => link.textContent.trim() === 'Service Area');
+    if (serviceAreaLink) serviceAreaLink.before(careersLink);
+    else companyHeading.after(careersLink);
+  }
+
   const yearTarget = sharedFooter.querySelector('.shared-year');
   if (yearTarget) yearTarget.textContent = new Date().getFullYear();
   const socialLogos = {
