@@ -95,3 +95,10 @@ document.addEventListener('contact-form:error', event => {
     page_path: window.location.pathname
   });
 });
+
+document.addEventListener('career-application:start', event => {
+  trackEvent('job_application_start', {
+    position: event.detail?.position || 'general',
+    page_path: window.location.pathname
+  });
+});
