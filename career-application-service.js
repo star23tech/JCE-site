@@ -1,14 +1,4 @@
-/*
-  Frontend boundary for the future Careers backend.
-
-  Future secure resume flow:
-  1. requestResumeUpload() asks the backend for a short-lived S3 upload URL.
-  2. uploadResume() sends the File directly to private S3.
-  3. submitApplication() sends application JSON plus the server-issued resume reference.
-
-  No backend endpoint is configured in this frontend-only phase. Never add binary
-  or base64 resume data to the application payload.
-*/
+/* Careers API boundary. Resume bytes go directly to S3; application JSON carries only resumeId. */
 (function exposeCareerApplicationService(global) {
   'use strict';
 
@@ -24,6 +14,7 @@
     docx: Object.freeze(['application/vnd.openxmlformats-officedocument.wordprocessingml.document'])
   });
   const MAX_RESUME_BYTES = 5 * 1024 * 1024;
+  const API_BASE = 'https://b4da2omenf.execute-api.us-east-1.amazonaws.com/Prod/careers';
 
   function normalizePosition(value) {
     return POSITIONS.some(position => position.value === value) ? value : 'general';
@@ -51,19 +42,59 @@
     return ['localhost', '127.0.0.1', '[::1]'].includes(global.location.hostname);
   }
 
-  async function requestResumeUpload() {
-    throw new Error('BACKEND_NOT_CONFIGURED');
+  function resumeContentType(file) {
+    const extension = (file.name.split('.').pop() || '').toLowerCase();
+    return file.type || ALLOWED_RESUME_TYPES[extension]?.[0];
   }
 
-  async function uploadResume() {
-    throw new Error('BACKEND_NOT_CONFIGURED');
+  async function postJson(path, payload) {
+    const response = await global.fetch(`${API_BASE}${path}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`CAREERS_API_${response.status}`);
+    const result = await response.json();
+    if (result.success === false) throw new Error('CAREERS_API_REJECTED');
+    return result;
+  }
+
+  async function requestResumeUpload(file) {
+    const validation = validateResume(file);
+    if (!file || !validation.valid) throw new Error(validation.message || 'RESUME_REQUIRED');
+    const result = await postJson('/resume-upload-url', {
+      fileName: file.name,
+      contentType: resumeContentType(file),
+      size: file.size
+    });
+    if (!result.resumeId || !result.upload?.url || result.upload.method !== 'PUT') {
+      throw new Error('INVALID_UPLOAD_AUTHORIZATION');
+    }
+    return result;
+  }
+
+  async function uploadResume(file, upload) {
+    const response = await global.fetch(upload.url, {
+      method: upload.method,
+      headers: upload.headers,
+      body: file
+    });
+    if (!response.ok) throw new Error(`RESUME_UPLOAD_${response.status}`);
   }
 
   async function submitApplication(application, resumeFile) {
-    if (!isLocalDevelopment()) throw new Error('BACKEND_NOT_CONFIGURED');
-    // Local-only UX mock. Intentionally does not transmit, persist, or log data.
-    await new Promise(resolve => global.setTimeout(resolve, 700));
-    return { accepted: true, mock: true };
+    const payload = { ...application };
+    for (const field of ['validDriversLicense', 'reliableTransportation', 'canWorkInRoanoke', 'authorizedToWorkInUS', 'currentlyEmployed']) {
+      payload[field] = application[field] === true || application[field] === 'yes';
+    }
+    if (resumeFile) {
+      const authorization = await requestResumeUpload(resumeFile);
+      await uploadResume(resumeFile, authorization.upload);
+      payload.resumeId = authorization.resumeId;
+    }
+    const result = await postJson('/application', payload);
+    if (result.accepted === false) throw new Error('SUBMISSION_REJECTED');
+    return { ...result, accepted: true };
   }
 
   global.JCECareerApplicationService = Object.freeze({

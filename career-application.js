@@ -17,7 +17,6 @@
   const validationSummary = document.getElementById('validation-summary');
   const formPanel = document.getElementById('application-form-panel');
   const successPanel = document.getElementById('application-success');
-  const resumeDevelopmentNote = document.getElementById('resume-development-note');
   let submitting = false;
 
   service.POSITIONS.forEach(position => {
@@ -28,7 +27,6 @@
   });
   const requestedPosition = new URLSearchParams(window.location.search).get('position');
   positionSelect.value = service.normalizePosition(requestedPosition);
-  resumeDevelopmentNote.hidden = !service.isLocalDevelopment();
 
   function updateApplyingForIndicator() {
     const showIndicator = positionSelect.value !== 'general';
