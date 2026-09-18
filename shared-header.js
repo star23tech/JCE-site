@@ -235,7 +235,7 @@ if (!document.querySelector('link[href$="homepage-theme.css"]')) {
   document.head.appendChild(schema);
 })();
 
-const sharedAssetPrefix = document.body.classList.contains('subpage-shell') ? '../' : '';
+const sharedAssetPrefix = document.body.dataset.rootPrefix ?? (document.body.classList.contains('subpage-shell') ? '../' : '');
 const sharedWordmark = document.querySelector('.standard-header .header-wordmark');
 if (sharedWordmark) {
   sharedWordmark.innerHTML = `<img class="header-brand-logo" src="${sharedAssetPrefix}assets/john-calhoun-electric-logo.png" alt="John Calhoun Electric and HVAC">`;
@@ -257,7 +257,7 @@ if (sharedHeaderCall) {
 if (sharedNav && !sharedNav.querySelector('.nav-dropdown')) {
   const airLink = sharedNav.querySelector('a');
   if (airLink) {
-    const prefix = document.body.classList.contains('subpage-shell') ? '../' : '';
+    const prefix = sharedAssetPrefix;
     const dropdown = document.createElement('div');
     dropdown.className = 'nav-dropdown';
     dropdown.innerHTML = `<a href="${prefix}hvac-services/">Air Conditioning</a><ul class="nav-submenu"><li><a href="${prefix}ac-repair/">AC Repair</a></li><li><a href="${prefix}ac-installation-replacement/">AC Installation &amp; Replacement</a></li><li><a href="${prefix}ac-maintenance-tune-ups/">AC Maintenance &amp; Tune-Ups</a></li><li><a href="${prefix}ductless-mini-splits/">Ductless Mini Splits</a></li><li><a href="${prefix}commercial-hvac-services/">Commercial HVAC Services</a></li></ul>`;
@@ -268,7 +268,7 @@ if (sharedNav && !sharedNav.querySelector('.nav-dropdown')) {
 if (sharedNav && !sharedNav.querySelector('.heating-dropdown')) {
   const heatingLink = [...sharedNav.children].find(item => item.tagName === 'A' && item.textContent.trim() === 'Heating');
   if (heatingLink) {
-    const prefix = document.body.classList.contains('subpage-shell') ? '../' : '';
+    const prefix = sharedAssetPrefix;
     const dropdown = document.createElement('div');
     dropdown.className = 'nav-dropdown heating-dropdown';
     dropdown.innerHTML = `<a href="${prefix}hvac-services/">Heating</a><ul class="nav-submenu"><li><a href="${prefix}heating-repair/">Heating Repair</a></li><li><a href="${prefix}heating-installation-replacement/">Heating Installation & Replacement</a></li><li><a href="${prefix}heat-pump-services/">Heat Pump Services</a></li><li><a href="${prefix}furnace-services/">Furnace Services</a></li><li><a href="${prefix}heating-maintenance-tune-ups/">Heating Maintenance & Tune-Ups</a></li><li><a href="${prefix}commercial-hvac-services/">Commercial HVAC Services</a></li></ul>`;
@@ -279,7 +279,7 @@ if (sharedNav && !sharedNav.querySelector('.heating-dropdown')) {
 if (sharedNav && !sharedNav.querySelector('.electrical-dropdown')) {
   const electricalLink = [...sharedNav.children].find(item => item.tagName === 'A' && item.textContent.trim() === 'Electrical');
   if (electricalLink) {
-    const prefix = document.body.classList.contains('subpage-shell') ? '../' : '';
+    const prefix = sharedAssetPrefix;
     const dropdown = document.createElement('div');
     dropdown.className = 'nav-dropdown electrical-dropdown';
     dropdown.innerHTML = `<a href="${prefix}electrical-services/">Electrical</a><ul class="nav-submenu"><li><a href="${prefix}electrical-repair-troubleshooting/">Electrical Repair & Troubleshooting</a></li><li><a href="${prefix}panel-replacement/">Panel Replacement</a></li><li><a href="${prefix}residential-electrical-installation-upgrades/">Residential Electrical Installation & Upgrades</a></li><li><a href="${prefix}outdoor-service-replacement/">Outdoor Service Replacement</a></li><li><a href="${prefix}wiring-rewiring/">Wiring & Rewiring</a></li><li><a href="${prefix}generators/">Generators</a></li><li><a href="${prefix}ev-chargers/">EV Chargers</a></li><li><a href="${prefix}commercial-electrical-services/">Commercial Electrical Services</a></li></ul>`;
@@ -312,7 +312,7 @@ const pagePath = window.location.pathname.replace(/index\.html$/, '').replace(/\
 // The contextual internal links these blocks used to inject now live in the page
 // HTML itself, so crawlers that do not execute JavaScript can see them.
 if (sharedFooter) {
-  const footerPrefix = document.body.classList.contains('subpage-shell') ? '../' : '';
+  const footerPrefix = sharedAssetPrefix;
   // The footer is authored statically in every page so crawlers that do not run
   // JavaScript still see the sitemap links, NAP, and license number. This block is
   // only a fallback for a page that has not been converted to a static footer.
@@ -320,6 +320,17 @@ if (sharedFooter) {
   if (!hasStaticFooter) {
     sharedFooter.className = 'standard-site-footer';
     sharedFooter.innerHTML = `<div class="footer-main footer-sitemap"><div><h3>Air Conditioning</h3><a href="${footerPrefix}ac-repair/">AC Repair</a><a href="${footerPrefix}ac-installation-replacement/">AC Installation & Replacement</a><a href="${footerPrefix}ac-maintenance-tune-ups/">AC Maintenance & Tune-Ups</a><a href="${footerPrefix}ductless-mini-splits/">Ductless Mini Splits</a><a href="${footerPrefix}commercial-hvac-services/">Commercial HVAC Services</a></div><div><h3>Heating</h3><a href="${footerPrefix}heating-repair/">Heating Repair</a><a href="${footerPrefix}heating-installation-replacement/">Heating Installation & Replacement</a><a href="${footerPrefix}heat-pump-services/">Heat Pump Services</a><a href="${footerPrefix}furnace-services/">Furnace Services</a><a href="${footerPrefix}heating-maintenance-tune-ups/">Heating Maintenance & Tune-Ups</a><a href="${footerPrefix}commercial-hvac-services/">Commercial HVAC Services</a></div><div><h3>Electrical</h3><a href="${footerPrefix}electrical-repair-troubleshooting/">Electrical Repair & Troubleshooting</a><a href="${footerPrefix}panel-replacement/">Panel Replacement</a><a href="${footerPrefix}residential-electrical-installation-upgrades/">Residential Installation & Upgrades</a><a href="${footerPrefix}outdoor-service-replacement/">Outdoor Service Replacement</a><a href="${footerPrefix}wiring-rewiring/">Wiring & Rewiring</a><a href="${footerPrefix}generators/">Generators</a><a href="${footerPrefix}ev-chargers/">EV Chargers</a><a href="${footerPrefix}commercial-electrical-services/">Commercial Electrical Services</a></div><div><h3>Company</h3><a href="${footerPrefix}about/">About Us</a><a href="${footerPrefix}service-area/">Service Area</a><div class="footer-socials" aria-label="John Calhoun Electric social media"><a href="https://www.facebook.com/JohnCalhounElectric" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span aria-hidden="true">f</span></a><a href="https://www.instagram.com/john_calhoun_electric/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span aria-hidden="true">ig</span></a><a href="https://www.linkedin.com/company/john-calhoun-electric/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span aria-hidden="true">in</span></a><a href="https://twitter.com/JCE_Official" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><span aria-hidden="true">X</span></a></div></div></div><div class="footer-bottom"><span>&copy; <span class="shared-year"></span> John Calhoun Electric. <b>|</b> All Rights Reserved</span></div>`;
+  }
+
+  const companyHeading = [...sharedFooter.querySelectorAll('.footer-sitemap h3')].find(heading => heading.textContent.trim() === 'Company');
+  const companyColumn = companyHeading?.parentElement;
+  if (companyColumn && ![...companyColumn.querySelectorAll(':scope > a')].some(link => link.textContent.trim() === 'Careers')) {
+    const careersLink = document.createElement('a');
+    careersLink.href = `${footerPrefix}careers/`;
+    careersLink.textContent = 'Careers';
+    const serviceAreaLink = [...companyColumn.querySelectorAll(':scope > a')].find(link => link.textContent.trim() === 'Service Area');
+    if (serviceAreaLink) serviceAreaLink.before(careersLink);
+    else companyHeading.after(careersLink);
   }
 
   const yearTarget = sharedFooter.querySelector('.shared-year');
