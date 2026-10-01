@@ -17,13 +17,13 @@ function renderSection(section) {
     const groupId = `${section}-${slugify(group)}`;
     const services = items.filter(item => item.group === group).map(item => {
       const note = item.note ? `<p class="pricing-note"><strong>Good to know:</strong> ${escapeHtml(item.note)}</p>` : '';
-      const higher = item.higherFactors ? `<div><h5>What might make the price higher</h5><p>${escapeHtml(item.higherFactors)}</p></div>` : '';
-      const lower = item.lowerFactors ? `<div><h5>What might make the price lower</h5><p>${escapeHtml(item.lowerFactors)}</p></div>` : '';
+      const higher = item.higherFactors ? `<p class="factor-line factor-higher"><strong>Price may be higher when:</strong> ${escapeHtml(item.higherFactors)}</p>` : '';
+      const lower = item.lowerFactors ? `<p class="factor-line factor-lower"><strong>Price may be lower when:</strong> ${escapeHtml(item.lowerFactors)}</p>` : '';
       const link = item.link ? `<a class="pricing-link" href="${escapeHtml(item.link)}">${escapeHtml(item.linkText)} <span aria-hidden="true">→</span></a>` : '';
-      const factors = higher || lower ? `<div class="factor-grid">${higher}${lower}</div>` : '';
-      return `<article class="pricing-item"><header><h4>${escapeHtml(item.name)}</h4><p class="pricing-price"><span>Typical price</span><strong>${escapeHtml(item.price)}</strong></p></header>${note}${factors}${link}</article>`;
+      const factors = higher || lower ? `<div class="pricing-factors">${higher}${lower}</div>` : '';
+      return `<li class="pricing-item"><div class="pricing-row"><h4>${escapeHtml(item.name)}</h4><p class="pricing-price"><span>Typical price</span><strong>${escapeHtml(item.price)}</strong></p></div>${note}${factors}${link}</li>`;
     }).join('');
-    return `<section class="pricing-group" aria-labelledby="${groupId}"><h3 id="${groupId}">${escapeHtml(group)}</h3><div class="pricing-list">${services}</div></section>`;
+    return `<section class="pricing-group" aria-labelledby="${groupId}"><h3 id="${groupId}">${escapeHtml(group)}</h3><ul class="pricing-list">${services}</ul></section>`;
   }).join('');
 }
 
