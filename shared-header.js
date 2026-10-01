@@ -288,6 +288,15 @@ if (sharedNav && !sharedNav.querySelector('.electrical-dropdown')) {
 }
 
 if (sharedNav) {
+  const existingPricingLink = [...sharedNav.querySelectorAll('a')].find(link => link.textContent.trim() === 'Pricing');
+  const aboutNavLink = [...sharedNav.children].find(item => item.tagName === 'A' && item.textContent.trim() === 'About Us');
+  if (!existingPricingLink && aboutNavLink) {
+    const pricingLink = document.createElement('a');
+    pricingLink.href = `${sharedAssetPrefix}pricing/`;
+    pricingLink.textContent = 'Pricing';
+    pricingLink.className = 'no-menu-arrow';
+    aboutNavLink.before(pricingLink);
+  }
   const aboutLink = [...sharedNav.querySelectorAll('a')].find(link => link.textContent.trim() === 'About Us');
   if (aboutLink) aboutLink.classList.add('no-menu-arrow');
   const contactLink = [...sharedNav.querySelectorAll('a')].find(link => link.textContent.trim() === 'Contact');
