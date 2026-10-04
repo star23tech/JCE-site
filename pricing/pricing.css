@@ -34,8 +34,45 @@
 }
 
 .pricing-page .service-hero {
-  padding-block: 82px;
+  padding: 0;
   background: linear-gradient(120deg, var(--pricing-navy), #294866);
+  text-align: left;
+}
+
+.pricing-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+  min-height: 520px;
+}
+
+.pricing-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(54px, 6vw, 92px) clamp(32px, 6vw, 96px);
+}
+
+.pricing-page .pricing-hero h1 {
+  max-width: 720px;
+  margin: 16px 0;
+  font-size: clamp(2.75rem, 5.2vw, 4.75rem);
+}
+
+.pricing-page .pricing-hero p {
+  max-width: 44rem;
+  margin: 20px 0 0;
+}
+
+.pricing-page .pricing-hero .eyebrow {
+  margin-top: 0;
+}
+
+.pricing-hero-image {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  object-position: 65% center;
 }
 
 .pricing-page .service-hero .eyebrow {
@@ -196,7 +233,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(250px, 0.65fr);
   gap: 32px;
-  align-items: center;
+  align-items: start;
 }
 
 .pricing-page .pricing-item h4 {
@@ -210,9 +247,6 @@
 
 .pricing-page .pricing-price {
   margin: 0;
-  padding: 13px 16px;
-  background: var(--pricing-soft);
-  border-left: 4px solid var(--pricing-red);
   color: var(--pricing-text);
   text-align: right;
 }
@@ -379,6 +413,27 @@
   color: #fff;
 }
 
+@media (max-width: 900px) {
+  .pricing-hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .pricing-hero-copy {
+    padding: 48px 24px;
+  }
+
+  .pricing-page .pricing-hero h1 {
+    font-size: clamp(2.4rem, 10vw, 3.5rem);
+  }
+
+  .pricing-hero-image {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+    object-position: 62% center;
+  }
+}
+
 @media (max-width: 760px) {
   .pricing-how ul {
     grid-template-columns: 1fr;
@@ -397,7 +452,7 @@
 
 @media (max-width: 700px) {
   .pricing-page .service-hero {
-    padding-block: 52px;
+    padding: 0;
   }
 
   .pricing-jumps {
