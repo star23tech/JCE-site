@@ -33,56 +33,10 @@
   box-shadow: 0 0 0 6px var(--pricing-navy);
 }
 
-.pricing-page .service-hero {
-  padding: 0;
-  background: linear-gradient(120deg, var(--pricing-navy), #294866);
-  text-align: left;
-}
-
-.pricing-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
-  min-height: 520px;
-}
-
-.pricing-hero-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(54px, 6vw, 92px) clamp(32px, 6vw, 96px);
-}
-
-.pricing-page .pricing-hero h1 {
-  max-width: 720px;
-  margin: 16px 0;
-  font-size: clamp(2.75rem, 5.2vw, 4.75rem);
-}
-
-.pricing-page .pricing-hero p {
-  max-width: 44rem;
-  margin: 20px 0 0;
-}
-
-.pricing-page .pricing-hero .eyebrow {
-  margin-top: 0;
-}
-
-.pricing-hero-image {
-  width: 100%;
-  height: 100%;
-  min-height: 520px;
-  object-fit: cover;
-  object-position: 65% center;
-}
-
-.pricing-page .service-hero .eyebrow {
-  color: #fff;
-}
-
-.pricing-page .service-hero p {
-  max-width: 48rem;
-  font-size: 1.125rem;
-  line-height: 1.7;
+.pricing-page .pricing-hero {
+  background-image: linear-gradient(rgba(5, 12, 18, 0.66), rgba(5, 12, 18, 0.72)), url("../assets/JCE_Customer.jpg");
+  background-position: center 42%;
+  background-size: cover;
 }
 
 .pricing-intro {
@@ -414,23 +368,8 @@
 }
 
 @media (max-width: 900px) {
-  .pricing-hero {
-    grid-template-columns: 1fr;
-    min-height: 0;
-  }
-
-  .pricing-hero-copy {
-    padding: 48px 24px;
-  }
-
-  .pricing-page .pricing-hero h1 {
-    font-size: clamp(2.4rem, 10vw, 3.5rem);
-  }
-
-  .pricing-hero-image {
-    min-height: 0;
-    aspect-ratio: 16 / 10;
-    object-position: 62% center;
+  .pricing-page .pricing-hero {
+    background-position: 62% center;
   }
 }
 
@@ -451,10 +390,6 @@
 }
 
 @media (max-width: 700px) {
-  .pricing-page .service-hero {
-    padding: 0;
-  }
-
   .pricing-jumps {
     display: grid;
   }
