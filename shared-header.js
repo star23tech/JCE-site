@@ -13,7 +13,7 @@ if (!document.querySelector('link[href$="homepage-theme.css"]')) {
 (() => {
   if (document.querySelector('meta[name="robots"][content*="noindex"]')) return;
 
-  const siteUrl = 'https://johncalhounelectric.com/';
+  const siteUrl = 'https://www.johncalhounelectric.com/';
   const businessId = `${siteUrl}#business`;
   const websiteId = `${siteUrl}#website`;
   const canonical = document.querySelector('link[rel="canonical"]')?.href;
