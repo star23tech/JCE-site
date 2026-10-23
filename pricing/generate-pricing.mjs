@@ -43,7 +43,7 @@ function renderPricingSchema() {
     '@context': 'https://schema.org',
     '@type': 'OfferCatalog',
     name: 'Residential HVAC and electrical pricing in Roanoke, Virginia',
-    url: 'https://johncalhounelectric.com/pricing/',
+    url: 'https://www.johncalhounelectric.com/pricing/',
     itemListElement: pricingData.map(item => ({
       '@type': 'Offer',
       priceCurrency: 'USD',
