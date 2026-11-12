@@ -261,7 +261,7 @@ if (sharedNav && !sharedNav.querySelector('.nav-dropdown')) {
     const prefix = sharedAssetPrefix;
     const dropdown = document.createElement('div');
     dropdown.className = 'nav-dropdown';
-    dropdown.innerHTML = `<a href="${prefix}hvac-services/">Air Conditioning</a><ul class="nav-submenu"><li><a href="${prefix}ac-repair/">AC Repair</a></li><li><a href="${prefix}ac-installation-replacement/">AC Installation &amp; Replacement</a></li><li><a href="${prefix}ac-maintenance-tune-ups/">AC Maintenance &amp; Tune-Ups</a></li><li><a href="${prefix}ductless-mini-splits/">Ductless Mini Splits</a></li><li><a href="${prefix}commercial-hvac-services/">Commercial HVAC Services</a></li></ul>`;
+    dropdown.innerHTML = `<a href="${prefix}hvac-services/">Air Conditioning</a><ul class="nav-submenu"><li><a href="${prefix}ac-repair/">AC Repair</a></li><li><a href="${prefix}ac-installation-replacement/">AC Installation &amp; Replacement</a></li><li><a href="${prefix}ac-maintenance-tune-ups/">AC Maintenance &amp; Tune-Ups</a></li><li><a href="${prefix}hvac-membership/">HVAC Maintenance Memberships</a></li><li><a href="${prefix}ductless-mini-splits/">Ductless Mini Splits</a></li><li><a href="${prefix}commercial-hvac-services/">Commercial HVAC Services</a></li></ul>`;
     airLink.replaceWith(dropdown);
   }
 }
@@ -272,7 +272,7 @@ if (sharedNav && !sharedNav.querySelector('.heating-dropdown')) {
     const prefix = sharedAssetPrefix;
     const dropdown = document.createElement('div');
     dropdown.className = 'nav-dropdown heating-dropdown';
-    dropdown.innerHTML = `<a href="${prefix}hvac-services/">Heating</a><ul class="nav-submenu"><li><a href="${prefix}heating-repair/">Heating Repair</a></li><li><a href="${prefix}heating-installation-replacement/">Heating Installation & Replacement</a></li><li><a href="${prefix}heat-pump-services/">Heat Pump Services</a></li><li><a href="${prefix}furnace-services/">Furnace Services</a></li><li><a href="${prefix}heating-maintenance-tune-ups/">Heating Maintenance & Tune-Ups</a></li><li><a href="${prefix}commercial-hvac-services/">Commercial HVAC Services</a></li></ul>`;
+    dropdown.innerHTML = `<a href="${prefix}hvac-services/">Heating</a><ul class="nav-submenu"><li><a href="${prefix}heating-repair/">Heating Repair</a></li><li><a href="${prefix}heating-installation-replacement/">Heating Installation & Replacement</a></li><li><a href="${prefix}heat-pump-services/">Heat Pump Services</a></li><li><a href="${prefix}furnace-services/">Furnace Services</a></li><li><a href="${prefix}heating-maintenance-tune-ups/">Heating Maintenance & Tune-Ups</a></li><li><a href="${prefix}hvac-membership/">HVAC Maintenance Memberships</a></li><li><a href="${prefix}commercial-hvac-services/">Commercial HVAC Services</a></li></ul>`;
     heatingLink.replaceWith(dropdown);
   }
 }
