@@ -36,6 +36,7 @@ if (!document.querySelector('link[href$="homepage-theme.css"]')) {
     'ac-repair': ['AC Repair', 'Air conditioning repair', 'hvac-services', 'HVAC Services'],
     'ac-installation-replacement': ['AC Installation & Replacement', 'Air conditioning installation and replacement', 'hvac-services', 'HVAC Services'],
     'ac-maintenance-tune-ups': ['AC Maintenance & Tune-Ups', 'Air conditioning maintenance and tune-ups', 'hvac-services', 'HVAC Services'],
+    'hvac-membership': ['HVAC Maintenance Memberships', 'HVAC preventive maintenance membership', 'hvac-services', 'HVAC Services'],
     'ductless-mini-splits': ['Ductless Mini Splits', 'Ductless mini-split installation and service', 'hvac-services', 'HVAC Services'],
     'commercial-hvac-services': ['Commercial HVAC Services', 'Commercial heating and air conditioning service', 'hvac-services', 'HVAC Services'],
     'heating-repair': ['Heating Repair', 'Heating system repair', 'hvac-services', 'HVAC Services'],

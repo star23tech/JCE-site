@@ -36,6 +36,12 @@ function getCanonical(html) {
   return '';
 }
 
+function resolveCanonical(html) {
+  const value = getCanonical(html);
+  if (!value) return '';
+  try { return new URL(value, siteUrl).href; } catch { return ''; }
+}
+
 function isNoindex(html) {
   return [...html.matchAll(/<meta\b[^>]*>/gi)].some(match => {
     const name = getAttribute(match[0], 'name').toLowerCase();
@@ -135,7 +141,7 @@ for (const url of urls) {
     continue;
   }
   const html = fs.readFileSync(file, 'utf8');
-  const canonical = getCanonical(html);
+  const canonical = resolveCanonical(html);
   if (canonical !== url) failures.push(`${slug || 'home'}: canonical does not match sitemap URL`);
   if (isNoindex(html)) failures.push(`${slug || 'home'}: sitemap page contains a noindex directive`);
   const title = text(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || '');
@@ -186,7 +192,7 @@ for (const url of urls) {
 for (const file of findIndexPages(root)) {
   const html = fs.readFileSync(file, 'utf8');
   if (isNoindex(html)) continue;
-  const canonical = getCanonical(html);
+  const canonical = resolveCanonical(html);
   const label = path.relative(root, file) || 'index.html';
   if (!canonical) failures.push(`${label}: indexable page has no canonical URL`);
   else if (!sitemapUrlSet.has(canonical)) failures.push(`${label}: indexable canonical is missing from sitemap`);
@@ -208,8 +214,8 @@ for (const slug of ['electrical-services', 'hvac-services']) {
   if (!sharedSource.includes(`${slug}/`)) failures.push(`${slug}: missing from shared navigation`);
 }
 
-if (serviceCount !== 18) failures.push(`Expected 18 Service graphs; found ${serviceCount}`);
-if (faqPageCount !== 10) failures.push(`Expected 10 visible FAQ pages; found ${faqPageCount}`);
+if (serviceCount !== 19) failures.push(`Expected 19 Service graphs; found ${serviceCount}`);
+if (faqPageCount !== 11) failures.push(`Expected 11 visible FAQ pages; found ${faqPageCount}`);
 
 if (failures.length) {
   console.error(failures.join('\n'));

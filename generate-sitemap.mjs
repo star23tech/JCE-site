@@ -63,11 +63,17 @@ for (const file of await findIndexPages(root)) {
   const html = await readFile(file, 'utf8');
   if (isNoindex(html)) continue;
 
-  const canonical = getCanonical(html);
+  const canonicalHref = getCanonical(html);
   const expected = expectedUrlFor(file);
-  if (!canonical) throw new Error(`${relative(root, file)} is indexable but has no canonical URL.`);
+  if (!canonicalHref) throw new Error(`${relative(root, file)} is indexable but has no canonical URL.`);
+  let canonical;
+  try {
+    canonical = new URL(canonicalHref, siteUrl).href;
+  } catch {
+    throw new Error(`${relative(root, file)} has an invalid canonical URL: ${canonicalHref}`);
+  }
   if (canonical !== expected) {
-    throw new Error(`${relative(root, file)} has canonical ${canonical}; expected ${expected}.`);
+    throw new Error(`${relative(root, file)} has canonical ${canonicalHref}; expected ${expected}.`);
   }
   urls.push(canonical);
 }
